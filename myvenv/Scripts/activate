@@ -38,7 +38,7 @@ deactivate () {
 # unset irrelevant variables
 deactivate nondestructive
 
-VIRTUAL_ENV="C:\Users\kmhas\Documents\GitHub\gestion_dun_musee\myvenv"
+VIRTUAL_ENV="C:\Users\smart asus\OneDrive\Documents\GitHub\gestion_dun_musee\myvenv"
 export VIRTUAL_ENV
 
 _OLD_VIRTUAL_PATH="$PATH"
