@@ -1,0 +1,335 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://kit.fontawesome.com/64d58efce2.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="{% static 'css/home.css' %}" />
+    <link href="https://fonts.googleapis.com/css?family=Josefin+Sans" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer"/>
+    <link rel="icon" type="image/png" href="{% static 'img/logo.png'%}"/>
+    <title>P-English-Home</title>
+</head>
+
+<body>
+    
+    <script src="{% static 'js/home.js'%}"></script>
+    <section class="home" id="home">
+        <header>
+            <nav><img src="{% static 'img/logodark.png'%}" style="height: auto;width: 69px; margin-top:-1.5rem; margin-right:-300px;">
+                <ul id="action" style="margin-left:42%">
+                    <li><a href="#" class="hover-underline-animation">Acceuil</a></li>
+                    <li><a href="#lessons" class="hover-underline-animation">Nos Lessons </a></li>
+                    <li><a href="#aboutus" class="hover-underline-animation">Propos de nous</a></li>
+                    <li><a href="#equipe" class="hover-underline-animation">L'equipe</a></li>
+                </ul>
+                <!-- <em onclick="myFunction()" class="fa-solid fa-moon" style="margin-right:35px;"></em> -->
+                <a href="Signinup" class="btn">Se connecter</a>
+                <!-- new button hamburger -->
+                <button id="menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <!-- end -->
+            </nav>
+        </header>
+        <div class="content">
+            <div class="container-texts">
+                <h4 class="minilogo"><i class="txt1">Afin de maîtriser Anglais</i><img class="img1" style="width:80px; margin-left:17px;margin-bottom:-25px;"src="https://img.icons8.com/clouds/100/000000/usa.png"/><img class="img2" style="width:80px;margin-bottom:-25px;" src="https://img.icons8.com/clouds/100/000000/great-britain.png"/></h4>
+                <h1>Welcome <span>Everybody</span></h1>
+                <a href="Signinup" class="btn2">Se connecter</a>
+            </div>
+            <div class="container-images">
+                <img src="{% static 'img/home/home2.png'%}" alt="" class="pic">
+            </div>
+        </div>
+    </section>
+
+    <section class="lessons" id="lessons">
+        <div class="container reveal fade-bottom">
+            <h1 class="text-center" id="us">Nos Lessons</h1>
+            <div class="box">
+                <div class="card">
+                    <em class="fa-solid fa-book"></em>
+                    <h5 id="us">Grammar</h5>
+                    <div class="par">
+                        <p>
+                            Grammar is the way we arrange words to make proper sentences. Word level grammar covers verbs and tenses, nouns,
+                        </p>
+                    </div>
+                </div>
+                <div class="card">
+                    <em class="fa-solid fa-language"></em>
+                    <h5 id="us">Conjugation</h5>
+                    <div class="par">
+                        <p>
+                            Conjugating verbs essentially means altering them into different forms to provide context. If we regard verbs as the action part of the speech, conjugation alters verbs to tell u
+
+                        </p>
+                    </div>
+                </div>
+                <div class="card">
+                    <em class="fa-solid fa-globe"></em>
+                    <h5 id="us">Spelling / Lexicon</h5>
+                    <div class="par">
+                        <p>
+                            A list of all the words used in a particular language or subject, or a dictionary. Words in English are not always spelled as they are pronounced. Spelling in English follows some basic rules and the majority
+
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section class="aboutus" id="aboutus">
+        <div class="container-images">
+            <div class="container reveal fade-left">
+                <img class="home3" src="{% static 'img/home/home3.png'%}" alt="">
+
+            </div>
+        </div><br>
+        <div class="container-texts">
+            <div class="container reveal fade-left">
+                <h1 id="abt">A Propos du <span id="us">Site</span></h1>
+                <h5 id="us">Etudiants <span>SMI-VI</span></h5>
+                <p> Un site de formation en-ligne de la langue anglaise, 
+                    Il est devellope par le Groupe_2 du projet Django 
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section class="team_section layout_padding" id="equipe">
+        <div class="container reveal fade-right">
+            <div class="container">
+                <h1 class="text-center"><span>L'equipe</span></h1>
+            </div>
+            <div class="container">
+                <div class="team_card-container layout_padding2">
+                    <div class="team_card">
+                        <div class="team_img-box">
+                            <img src="{% static 'img/home/team-1.png'%}" alt="">
+                        </div>
+                        <div class="team_detail-box">
+                            <h5 class="hover-underline-animation">
+                                M.ALAMI
+                            </h5>
+                            <h4 id="sc">
+                                Dev. Team
+                            </h4><br>
+                            <div class="team_follow">
+                                <h6>
+                                    Follow On
+                                </h6><br>
+                                <div class="team_social">
+                                    <div>
+                                        <a href="">
+                                            <em class="fa-brands fa-facebook"></em>
+                                        </a>
+                                    </div>
+                                    <div>
+                                        <a href="">
+                                            <em class="fa-brands fa-instagram"></em>
+                                        </a>
+                                    </div>
+                                    <div>
+                                        <a href="">
+                                            <em class="fa-brands fa-linkedin"></em>
+                                        </a>
+                                    </div>
+                                    <div>
+                                        <a href="">
+                                            <em class="fa-brands fa-twitter"></em>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="team_card">
+                        <div class="team_img-box">
+                            <img src="{% static 'img/home/team-1.png'%}" alt="">
+                        </div>
+                        <div class="team_detail-box">
+                            <h5 class="hover-underline-animation">
+                                H.Mabrouki
+                            </h5>
+                            <h4 id="sc">
+                                Dev. Team
+                            </h4><br>
+                            <div class="team_follow">
+                                <h6>
+                                    Follow On
+                                </h6><br>
+                                <div class="team_social">
+                                    <div>
+                                        <a href="">
+                                            <em class="fa-brands fa-facebook"></em>
+                                        </a>
+                                    </div>
+                                    <div>
+                                        <a href="">
+                                            <em class="fa-brands fa-instagram"></em>
+                                        </a>
+                                    </div>
+                                    <div>
+                                        <a href="">
+                                            <em class="fa-brands fa-linkedin"></em>
+                                        </a>
+                                    </div>
+                                    <div>
+                                        <a href="">
+                                            <em class="fa-brands fa-twitter"></em>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="team_card">
+                        <div class="team_img-box">
+                            <img src="{% static 'img/home/team-1.png'%}" alt="">
+                        </div>
+                        <div class="team_detail-box">
+                            <h5 class="hover-underline-animation">
+                                Y.OURARA
+                            </h5>
+                            <h4 id="sc">
+                                P. Owner
+                            </h4><br>
+                            <div class="team_follow">
+                                <h6>
+                                    Follow On
+                                </h6><br>
+                                <div class="team_social">
+                                    <div>
+                                        <a href="https://www.facebook.com/ya.ourara">
+                                            <em class="fa-brands fa-facebook"></em>
+                                        </a>
+                                    </div>
+                                    <div>
+                                        <a href="https://www.instagram.com/_don.yassine">
+                                            <em class="fa-brands fa-instagram"></em>
+                                        </a>
+                                    </div>
+                                    <div>
+                                        <a href="https://www.linkedin.com/in/yassine-ourara/">
+                                            <em class="fa-brands fa-linkedin"></em>
+                                        </a>
+                                    </div>
+                                    <div>
+                                        <a href="https://twitter.com/YassineOurara1">
+                                            <em class="fa-brands fa-twitter"></em>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="team_card">
+                        <div class="team_img-box">
+                            <img src="{% static 'img/home/team-1.png'%}" alt="">
+                        </div>
+                        <div class="team_detail-box">
+                            <h5 class="hover-underline-animation">
+                                K.Mhasni
+                            </h5>
+                            <h4 id="sc">
+                                SC. Master
+                            </h4><br>
+                            <div class="team_follow">
+                                <h6>
+                                    Follow On
+                                </h6><br>
+                                <div class="team_social">
+                                    <div>
+                                        <a href="">
+                                            <em class="fa-brands fa-facebook"></em>
+                                        </a>
+                                    </div>
+                                    <div>
+                                        <a href="">
+                                            <em class="fa-brands fa-instagram"></em>
+                                        </a>
+                                    </div>
+                                    <div>
+                                        <a href="">
+                                            <em class="fa-brands fa-linkedin"></em>
+                                        </a>
+                                    </div>
+                                    <div>
+                                        <a href="">
+                                            <em class="fa-brands fa-twitter"></em>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="team_card">
+                        <div class="team_img-box">
+                            <img src="{% static 'img/home/team-1.png'%}" alt="">
+                        </div>
+                        <div class="team_detail-box">
+                            <h5 class="hover-underline-animation">
+                                O.RISY
+                            </h5>
+                            <h4 id="sc">
+                                Dev. Team
+                            </h4><br>
+                            <div class="team_follow">
+                                <h6>
+                                    Follow On
+                                </h6><br>
+                                <div class="team_social">
+                                    <div>
+                                        <a href="">
+                                            <em class="fa-brands fa-facebook"></em>
+                                        </a>
+                                    </div>
+                                    <div>
+                                        <a href="">
+                                            <em class="fa-brands fa-instagram"></em>
+                                        </a>
+                                    </div>
+                                    <div>
+                                        <a href="">
+                                            <em class="fa-brands fa-linkedin"></em>
+                                        </a>
+                                    </div>
+                                    <div>
+                                        <a href="">
+                                            <em class="fa-brands fa-twitter"></em>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container reveal">
+            <div class="content-footer">
+              <img src="{% static 'img/home/peng.png'%}" alt="">
+                <h4>
+                    Ce site a comme but d'apprendre la langue anglaise.
+                </h4>
+                <p class="end">
+                    Prepared and Designed By <span style="color : snow;">APTAL</span>
+                </p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

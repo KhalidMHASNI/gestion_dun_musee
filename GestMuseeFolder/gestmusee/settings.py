@@ -54,7 +54,7 @@ ROOT_URLCONF = 'gestmusee.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [BASE_DIR/'gestmuseeAPP/templates'],
+        'DIRS': [BASE_DIR/'GestMuseeFolder/gestmuseeAPP/templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
