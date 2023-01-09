@@ -282,8 +282,7 @@ nav ul li {
     text-decoration: none;
     font-weight: bold;
     padding: 0.81rem 0.87rem;
-    border-radius: 50px;
-    border: 2px solid var(--bgColor-2);
+    border: 0px 0px 3px 0px solid var(--bgColor-2);
     transition: 0.1s;
 }
 
@@ -309,7 +308,6 @@ nav ul li {
     text-decoration: none;
     font-weight: bold;
     padding: 0.81rem 0.87rem;
-    border-radius: 50px;
     border: 0px 0px 3px 0px solid var(--bgColor-2);
     transition: 0.1s;
     visibility: hidden;
