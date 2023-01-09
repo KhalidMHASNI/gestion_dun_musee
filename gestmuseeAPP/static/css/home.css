@@ -44,11 +44,11 @@
 }
 
 :root {
-    --primaryColor: #49b265;
-    --secondaryColor-1: #159947;
-    --bgColor-1: #1f5f5b;
-    --bgColor-2: #06373a;
-    --footerColor: #062315;
+    --primaryColor: #030BA6;
+    --secondaryColor-1: #3269D9;
+    --bgColor-1: #F2B441;
+    --bgColor-2: #D93D04;
+    --footerColor: #F2E205;
     --padding: 8%;
 }
 
@@ -178,7 +178,7 @@ p {
 *******************************************/
 
 .home {
-    background: linear-gradient(50deg, #61c9c2, #29a39b, #24a29a, #1b8b84, #0e6e68);
+    background: linear-gradient(50deg, #F2E205, #D93D04, #F2B441, #3269D9, #030BA6);
     background-size: 400% 400%;
     animation: gradient 6s infinite ease-in-out ;
     transition: 1.8s ease-in-out;
