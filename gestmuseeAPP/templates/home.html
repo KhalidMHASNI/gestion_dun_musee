@@ -1,4 +1,3 @@
-{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 
@@ -6,329 +5,342 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="https://kit.fontawesome.com/64d58efce2.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="{% static 'css/home.css' %}" />
+    <link rel="stylesheet" href="css/home.css" />
     <link href="https://fonts.googleapis.com/css?family=Josefin+Sans" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer"/>
-    <link rel="icon" type="image/png" href="{% static 'img/logo.png'%}"/>
-    <title>GestMusee-Home</title>
+    <link rel="icon" type="image/png" href="img/home/darJ.png"/>
+    <title>DarJ-Home</title>
 </head>
 
 <body>
-    
-    <script src="{% static 'js/home.js'%}"></script>
-    <section class="home" id="home">
+
+
+<section class="showcase">
         <header>
-            <nav><img src="{% static 'img/logodark.png'%}" style="height: auto;width: 69px; margin-top:-1.5rem; margin-right:-300px;">
-                <ul id="action" style="margin-left:42%">
-                    <li><a href="#" class="hover-underline-animation">Acceuil</a></li>
-                    <li><a href="#lessons" class="hover-underline-animation">Nos Lessons </a></li>
-                    <li><a href="#aboutus" class="hover-underline-animation">Propos de nous</a></li>
-                    <li><a href="#equipe" class="hover-underline-animation">L'equipe</a></li>
-                </ul>
-                <!-- <em onclick="myFunction()" class="fa-solid fa-moon" style="margin-right:35px;"></em> -->
-                <a href="Signinup" class="btn">S'abonner</a>
-                <!-- new button hamburger -->
-                <button id="menu">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </button>
-                <!-- end -->
-            </nav>
+        <nav><img src="img/home/darJ.png">
+            <ul id="action" style="margin-left:42%">
+                <li><a href="#oeuvres" class="hover-underline-animation">Consulter Oeuvres</a></li>
+                <li><a href="#tarif" class="hover-underline-animation">Consulter Tarif</a></li>
+                <li><a href="#calendar" class="hover-underline-animation">Consulter calendrier</a></li>
+                <li><a href="#aboutus" class="hover-underline-animation">Propos de nous</a></li>
+                <a href="Signinup.html" class="btn1">S'abonner</a>
+            </ul>
+            <!-- new button hamburger -->
+            <button id="menu">
+              <span></span>
+              <span></span>
+              <span></span>
+          </button>
+          <!-- end -->
+          </nav>
         </header>
-        <div class="content">
-            <div class="container-texts">
-                <h4 class="minilogo"><i class="txt1">Gestion d'un musee</i></h4>
-                <h1>Welcome <span>Everybody</span></h1>
-                <a href="Signinup" class="btn2">S'abonner</a>
-            </div>
-            <div class="container-images">
-                <img src="{% static 'img/home/home2.png'%}" alt="" class="pic">
-            </div>
+        <video src="img/museevideo.mp4" muted loop autoplay></video>
+        <div class="overlay"></div>
+        <div  class="text">
+          <h3>Dar Jamaï</h3> 
+          <h4>Musee</h4>
+          <p>Le palais Dar Jamaï fut édifié en 1882 dans la ville de Meknès au Maroc par Mohamed ben Larbi Jamaï.
+            Ce monument est devenu l'hôpital militaire Louis en 1912, puis il a été transformé en musée à partir de 1920 sous l'appellation de "Musée des Arts Indigènes", et ensuite rebaptisé "Musée Dar Jamaï".
+            Le palais Dar Jamaï fait partie du patrimoine protégé de Meknès depuis 1920.</p>
+          <a href="https://en.wikipedia.org/wiki/Dar_Jamai_Museum" target="_blank">Lire plus</a>
         </div>
+        
     </section>
 
-    <section class="lessons" id="lessons">
-        <div class="container reveal fade-bottom">
-            <h1 class="text-center" id="us">Nos Lessons</h1>
-            <div class="box">
-                <div class="card">
-                    <em class="fa-solid fa-book"></em>
-                    <h5 id="us">Grammar</h5>
-                    <div class="par">
-                        <p>
-                            Grammar is the way we arrange words to make proper sentences. Word level grammar covers verbs and tenses, nouns,
-                        </p>
-                    </div>
-                </div>
-                <div class="card">
-                    <em class="fa-solid fa-language"></em>
-                    <h5 id="us">Conjugation</h5>
-                    <div class="par">
-                        <p>
-                            Conjugating verbs essentially means altering them into different forms to provide context. If we regard verbs as the action part of the speech, conjugation alters verbs to tell u
+<section class="appah" id="oeuvres">
+    <div class="row">
+        <div class="col-1">
+            <h1>Oeuvres</h1>
+            <p>Le palais Dar Jamaï fut édifié en 1882 dans la ville de Meknès au Maroc par Mohamed ben Larbi Jamaï.
+                Ce monument est devenu l'hôpital militaire Louis en 1912.Les oeuvres de musee Dar Jamaï disponibles
+             </p>
+             <a href="oeuvres.html">Voir Plus</a>
+             <div class="navigation">
+                <div class="btn active"></div>
+                <div class="btn"></div>
+                <div class="btn"></div>
+                <div class="btn"></div>
+                <div class="btn"></div>
 
-                        </p>
-                    </div>
-                </div>
-                <div class="card">
-                    <em class="fa-solid fa-globe"></em>
-                    <h5 id="us">Spelling / Lexicon</h5>
-                    <div class="par">
-                        <p>
-                            A list of all the words used in a particular language or subject, or a dictionary. Words in English are not always spelled as they are pronounced. Spelling in English follows some basic rules and the majority
+              </div>
 
-                        </p>
-                    </div>
-                </div>
-
-            </div>
         </div>
-    </section>
-
-    <section class="aboutus" id="aboutus">
-        <div class="container-images">
-            <div class="container reveal fade-left">
-                <img class="home3" src="{% static 'img/home/home3.png'%}" alt="">
-
-            </div>
-        </div><br>
-        <div class="container-texts">
-            <div class="container reveal fade-left">
-                <h1 id="abt">A Propos du <span id="us">Site</span></h1>
-                <h5 id="us">Etudiants <span>SMI-VI</span></h5>
-                <p> Un site de formation en-ligne de la langue anglaise, 
-                    Il est devellope par le Groupe_2 du projet Django 
-                </p>
-            </div>
+        <div class="col-2">
+            <div class="img-slider">
+                <div class="slide active ">
+                      <img src="img/home/oe1.jpg" >
+                    </div>
+                    <div class="slide">
+                      <img src="img/home/oe2.jpg" >
+                    </div>
+                    <div class="slide">
+                      <img src="img/home/oe3.jpg" >                      
+                    </div>
+                    <div class="slide">
+                        <img src="img/home/2.jpg" >
+                      </div>
+                      <div class="slide">
+                        <img src="img/home/1.jpg" >
+                      </div>
+                    
+                </div>
+                
         </div>
-    </section>
+    </div>
 
-    <section class="team_section layout_padding" id="equipe">
-        <div class="container reveal fade-right">
-            <div class="container">
-                <h1 class="text-center"><span>L'equipe</span></h1>
+</section>
+
+<section class="appah1" id="tarif">
+  
+  <div class="row">
+    <div class="col-1">
+      <h1>Tarif</h1>
+      <p>Le palais Dar Jamaï fut édifié en 1882 dans la ville de Meknès au Maroc par Mohamed ben Larbi Jamaï.
+          Ce monument est devenu l'hôpital militaire Louis en 1912.Les oeuvres de musee Dar Jamaï disponibles
+       </p>
+       <a href="tarif.html">Plus d'dinfos</a>
+  </div>
+    <div class="container-card">
+      <div class="card">
+          <div class="card-title">
+              <h2>Trimestriel</h2>
+              <p><Span>150</Span>MAD /Public</p>
+          </div>
+          <div class="card-content">
+              <ul>
+                <li><i class="fa fa-check-circle"></i>100 MAD /Etudiants</li>
+                <li><i class="fa fa-check-circle"></i>75 MAD /Eleves</li>
+                <li><i class="fa fa-check-circle"></i>125 MAD /Comité d'entreprise</li>
+                <li><i class="fa fa-check-circle"></i>Gratuit /Etudiant d'art</li>
+              </ul>
+          </div>
+      </div>
+      <div class="card">
+          <div class="card-title">
+              <h2>Mensuel</h2>
+              <p><Span>60</Span>MAD /Public</p>
+          </div>
+          <div class="card-content">
+              <ul>
+                <li><i class="fa fa-check-circle"></i>40 MAD /Etudiants</li>
+                <li><i class="fa fa-check-circle"></i>30 MAD /Eleves</li>
+                <li><i class="fa fa-check-circle"></i>50 MAD /Comité d'entreprise</li>
+                <li><i class="fa fa-check-circle"></i>Gratuit /Etudiant d'art</li>
+              </ul>
+          </div>
+      </div>
+      <div class="card">
+          <div class="card-title">
+              <h2>Annuel</h2>
+              <p><Span>600</Span>MAD /Public</p>
+          </div>
+          <div class="card-content">
+              <ul>
+                  <li><i class="fa fa-check-circle"></i>400 MAD /Etudiants</li>
+                  <li><i class="fa fa-check-circle"></i>300 MAD /Eleves</li>
+                  <li><i class="fa fa-check-circle"></i>500 MAD /Comité d'entreprise</li>
+                  <li><i class="fa fa-check-circle"></i>Gratuit /Etudiant d'art</li>
+              </ul>
+          </div>
+      </div>
+    </div>
+      
+  </div>
+
+</section>
+
+<section class="appah" id="calendar">
+      <div class="row">
+          <div class="col-1">
+              <h1>Calendrier</h1>
+              <p>Le palais Dar Jamaï fut édifié en 1882 dans la ville de Meknès au Maroc par Mohamed ben Larbi Jamaï.
+                  Pour consulter calendrier veuillez cliquer le boutton ci-dessus
+               </p>
+               <a type="button" href="calendar.html">Consulter </a>
+          </div>
+          <div class="col-2">
+            <div class="event-container">
+              <h3 class="year">2023</h3>
+        
+              <div class="event container reveal fade-bottom">
+                <div class="event-left">
+                  <div class="event-date">
+                    <div class="date">8</div>
+                    <div class="month">Jan</div>
+                  </div>
+                </div>
+        
+                <div class="event-right">
+                  <h3 class="event-title">Titre</h3>
+        
+                  <div class="event-description">
+                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Accusamus,
+                    ratione.
+                  </div>
+        
+                  <div class="event-timing">
+                    <!-- <img src="img/home/time.png" alt=""/>--> 10:00 am 
+                  </div>
+                </div>
+              </div>
+        
+        
+              <div class="event container reveal fade-bottom">
+                <div class="event-left">
+                  <div class="event-date">
+                    <div class="date">4</div>
+                    <div class="month">Apr</div>
+                  </div>
+                </div>
+        
+                <div class="event-right">
+                  <h3 class="event-title">Titre</h3>
+        
+                  <div class="event-description">
+                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Accusamus,
+                    ratione.
+                  </div>
+        
+                  <div class="event-timing">
+                    <!-- <img src="img/home/time.png" alt="" />--> 10:00 am 
+                  </div>
+                </div>
+              </div>
+        
+              <div class="event container reveal fade-bottom">
+                <div class="event-left">
+                  <div class="event-date">
+                    <div class="date">8</div>
+                    <div class="month">Jun</div>
+                  </div>
+                </div>
+        
+                <div class="event-right">
+                  <h3 class="event-title">Titre</h3>
+        
+                  <div class="event-description">
+                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Accusamus,
+                    ratione.
+                  </div>
+        
+                  <div class="event-timing">
+                    <!-- <img src="img/home/time.png" alt="" /> -->10:00 am 
+                  </div>
+                </div>
+              </div>
             </div>
-            <div class="container">
-                <div class="team_card-container layout_padding2">
-                    {% comment %} <div class="team_card">
-                        <div class="team_img-box">
-                            <img src="{% static 'img/home/team-1.png'%}" alt="">
-                        </div>
-                        <div class="team_detail-box">
-                            <h5 class="hover-underline-animation">
-                                M.ALAMI
+                  
+          </div>
+      </div>
+  
+  </section>
+
+  <section class="aboutus" id="aboutus">
+    <div class="container-images">
+        <div class="container reveal fade-left">
+            <img class="home3" src="img/home/home2.png" alt="">
+        </div>
+    </div><br>
+    <div class="container-texts">
+        <div class="container reveal fade-left">
+            <h1 id="abt">A Propos de <span id="us">l'application</span></h1>
+            <h5 id="us">Etudiants <span>MIAAD</span></h5>
+            <p> Un site de formation en-ligne de la langue anglaise, 
+                Il est devellope par le Groupe_2 du projet Django 
+            </p>
+        </div>
+    </div>
+</section>
+
+
+<footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="footer-col">
+                    <h4>Application</h4>
+                    <ul>
+                        <li><a href="#aboutus">A propos de nous</a></li>
+                        <li><a href="oeuvres.html">Nos Oeuvres</a></li>
+                        <li><a href="tarif.html">Tarifs</a></li>
+                        <li><a href="calendar.html">Calendrier</a></li>
+                        
+                    </ul>
+                    <img src="img/home/darJ.png">
+
+                </div>
+
+                <div class="footer-col">
+                    <h4>Musée</h4>
+                    <ul>
+                        <li><a href="#">Les musées/Monde</a></li>
+                        <li><a href="#">Les musées/Maroc</a></li>
+                        <li><a href="#">Les musées/Meknes</a></li>
+                        <li><a href="#">Dar Jamaï</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4>follow us</h4>
+
+                        <div class="social-links">
+                            <h5 id="name">
+                                Yassine Ourara
                             </h5>
-                            <h4 id="sc">
-                                Dev. Team
-                            </h4><br>
-                            <div class="team_follow">
-                                <h6>
-                                    Follow On
-                                </h6><br>
-                                <div class="team_social">
-                                    <div>
-                                        <a href="">
-                                            <em class="fa-brands fa-facebook"></em>
-                                        </a>
-                                    </div>
-                                    <div>
-                                        <a href="">
-                                            <em class="fa-brands fa-instagram"></em>
-                                        </a>
-                                    </div>
-                                    <div>
-                                        <a href="">
-                                            <em class="fa-brands fa-linkedin"></em>
-                                        </a>
-                                    </div>
-                                    <div>
-                                        <a href="">
-                                            <em class="fa-brands fa-twitter"></em>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
+                            
+                                <a href="https://github.com/YassineOurara" target="_blank">
+                                    <em id="gt" class="fa-brands fa-github"></em>
+                                </a>
+                                <a href="https://www.instagram.com/_don.yassine" target="_blank">
+                                    <em id="ig" class="fa-brands fa-instagram"></em>
+                                </a>
+                                <a href="https://www.linkedin.com/in/yassine-ourara/" target="_blank">
+                                    <em id="li" class="fa-brands fa-linkedin"></em>
+                                </a>
+                            
                         </div>
-                    </div> {% endcomment %}
-                    {% comment %} <div class="team_card">
-                        <div class="team_img-box">
-                            <img src="{% static 'img/home/team-1.png'%}" alt="">
-                        </div>
-                        <div class="team_detail-box">
-                            <h5 class="hover-underline-animation">
-                                H.Mabrouki
+                    
+                        <div class="social-links">
+                            <br>
+                            <h5 id="name">
+                                Khalid Mhasni
                             </h5>
-                            <h4 id="sc">
-                                Dev. Team
-                            </h4><br>
-                            <div class="team_follow">
-                                <h6>
-                                    Follow On
-                                </h6><br>
-                                <div class="team_social">
-                                    <div>
-                                        <a href="">
-                                            <em class="fa-brands fa-facebook"></em>
-                                        </a>
-                                    </div>
-                                    <div>
-                                        <a href="">
-                                            <em class="fa-brands fa-instagram"></em>
-                                        </a>
-                                    </div>
-                                    <div>
-                                        <a href="">
-                                            <em class="fa-brands fa-linkedin"></em>
-                                        </a>
-                                    </div>
-                                    <div>
-                                        <a href="">
-                                            <em class="fa-brands fa-twitter"></em>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div> {% endcomment %}
-                    <div class="team_card">
-                        <div class="team_img-box">
-                            <img src="{% static 'img/home/team-1.png'%}" alt="">
-                        </div>
-                        <div class="team_detail-box">
-                            <h5 class="hover-underline-animation">
-                                Y.OURARA
-                            </h5>
-                            <h4 id="sc">
-                                P. Owner
-                            </h4><br>
-                            <div class="team_follow">
-                                <h6>
-                                    Follow On
-                                </h6><br>
-                                <div class="team_social">
-                                    <div>
-                                        <a href="https://www.facebook.com/ya.ourara">
-                                            <em class="fa-brands fa-facebook"></em>
-                                        </a>
-                                    </div>
-                                    <div>
-                                        <a href="https://www.instagram.com/_don.yassine">
-                                            <em class="fa-brands fa-instagram"></em>
-                                        </a>
-                                    </div>
-                                    <div>
-                                        <a href="https://www.linkedin.com/in/yassine-ourara/">
-                                            <em class="fa-brands fa-linkedin"></em>
-                                        </a>
-                                    </div>
-                                    <div>
-                                        <a href="https://twitter.com/YassineOurara1">
-                                            <em class="fa-brands fa-twitter"></em>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                            <a href="https://github.com/KhalidMHASNI" target="_blank">
+                                <em id="gt" class="fa-brands fa-github"></em>
+                            </a>
+                            <a href="https://www.instagram.com" target="_blank">
+                                <em id="ig" class="fa-brands fa-instagram"></em>
+                            </a>
+                            <a href="https://www.linkedin.com/in/khalid-mhasni-637b94209/" target="_blank">
+                                <em id="li" class="fa-brands fa-linkedin"></em>
+                            </a>
+                            
+                        </div> 
                     </div>
-                    <div class="team_card">
-                        <div class="team_img-box">
-                            <img src="{% static 'img/home/team-1.png'%}" alt="">
-                        </div>
-                        <div class="team_detail-box">
-                            <h5 class="hover-underline-animation">
-                                K.Mhasni
-                            </h5>
-                            <h4 id="sc">
-                                SC. Master
-                            </h4><br>
-                            <div class="team_follow">
-                                <h6>
-                                    Follow On
-                                </h6><br>
-                                <div class="team_social">
-                                    <div>
-                                        <a href="">
-                                            <em class="fa-brands fa-facebook"></em>
-                                        </a>
-                                    </div>
-                                    <div>
-                                        <a href="">
-                                            <em class="fa-brands fa-instagram"></em>
-                                        </a>
-                                    </div>
-                                    <div>
-                                        <a href="">
-                                            <em class="fa-brands fa-linkedin"></em>
-                                        </a>
-                                    </div>
-                                    <div>
-                                        <a href="">
-                                            <em class="fa-brands fa-twitter"></em>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+
+                    <div class="footer-col">
+                        <h4>Localisation</h4>
+                        <!-- <ul>
+                            <li><a href="#">watch</a></li>
+                            <li><a href="#">bag</a></li>
+                            <li><a href="#">shoes</a></li>
+                            <li><a href="#">dress</a></li>
+                        </ul> -->
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3217.010287183864!2d-5.5627468!3d33.8926952!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xda05ad5fa3c81c3%3A0x8273709182748834!2sDar%20Jamai%20Museum!5e1!3m2!1sen!2sma!4v1673728420435!5m2!1sen!2sma"  width="420" height="250" 
+                         class="map" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                     </div>
-                    {% comment %} <div class="team_card">
-                        <div class="team_img-box">
-                            <img src="{% static 'img/home/team-1.png'%}" alt="">
-                        </div>
-                        <div class="team_detail-box">
-                            <h5 class="hover-underline-animation">
-                                O.RISY
-                            </h5>
-                            <h4 id="sc">
-                                Dev. Team
-                            </h4><br>
-                            <div class="team_follow">
-                                <h6>
-                                    Follow On
-                                </h6><br>
-                                <div class="team_social">
-                                    <div>
-                                        <a href="">
-                                            <em class="fa-brands fa-facebook"></em>
-                                        </a>
-                                    </div>
-                                    <div>
-                                        <a href="">
-                                            <em class="fa-brands fa-instagram"></em>
-                                        </a>
-                                    </div>
-                                    <div>
-                                        <a href="">
-                                            <em class="fa-brands fa-linkedin"></em>
-                                        </a>
-                                    </div>
-                                    <div>
-                                        <a href="">
-                                            <em class="fa-brands fa-twitter"></em>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div> {% endcomment %}
+
                 </div>
             </div>
-        </div>
-    </section>
+            <a class="gotopbtn" href="#"> <em class="fas fa-arrow-up"></em> </a>
 
-    {% comment %} <footer>
-        <div class="container reveal">
-            <div class="content-footer">
-              <img src="{% static 'img/home/peng.png'%}" alt="">
-                <h4>
-                    Ce site a comme but d'apprendre la langue anglaise.
-                </h4>
-                <p class="end">
-                    Prepared and Designed By <span style="color : snow;">APTAL</span>
-                </p>
-            </div>
         </div>
-    </footer> {% endcomment %}
+        
+
+
+
+    </footer>
+
+<script src="js/home.js" ></script>
 
 </body>
 </html>
