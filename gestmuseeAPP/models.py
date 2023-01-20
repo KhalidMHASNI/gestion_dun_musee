@@ -11,10 +11,36 @@ from django.db.models.signals import post_save
 from django.dispatch import receiver
 from django.core.exceptions import ObjectDoesNotExist
 
-class Profile(models.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE)
-    score = models.IntegerField(default=0,null=False)
 
+
+class Abonnee(models.Model):
+    prenom = models.CharField(max_length=255)
+    nom = models.CharField(max_length=255)
+    email = models.EmailField(unique=True)
+    type_abonnement = models.CharField(max_length=255)
+    date_start = models.DateField()
+    date_end = models.DateField()
+    numero_credit_carte = models.CharField(max_length=20)
+    cni = models.CharField(max_length=20)
+    password = models.CharField(max_length=255) 
+
+
+class Artist(models.Model):
+    nom = models.CharField(max_length=255)
+    date_naissance = models.DateField()
+    date_deces = models.DateField(blank=True, null=True)
+    nationalite = models.CharField(max_length=255)
+
+
+class Oeuvre(models.Model):
+    titre = models.CharField(max_length=255)
+    artist = models.ForeignKey(Artist, on_delete=models.CASCADE)
+    type_ouevre = models.CharField(max_length=255)
+    prix = models.DecimalField(max_digits=10, decimal_places=2)
+    type_assurence = models.CharField(max_length=255)
+
+
+'''
 @receiver(post_save, sender=User)
 def create_user_profile(sender, instance, created, **kwargs):
     try:
@@ -35,3 +61,4 @@ class Destination(models.Model):
     desc = models.TextField()
     price = models.IntegerField()
     offer = models.BooleanField(default=False)
+'''
