@@ -1,10 +1,11 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8" />
     <script src="https://kit.fontawesome.com/64d58efce2.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="{% static 'css/abon.css'%}" />
+    <link rel="stylesheet" href="{% static 'css/abon.css' %}" />
     <link rel="icon" type="image/png" href="{% static 'img/home/darJ.png'%}"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DarJ-SignIn-Up</title>
@@ -90,10 +91,30 @@
                             <i class="fas fa-user"></i>
                             <input type="text" placeholder="Nom" name="last_name" required/>
                         </div>
+                        <div class="input-field" id="test1">
+                            <i class="fa-solid fa-cards-blank"></i>
+                            <input type="text" placeholder="Num Carte" name="num_carte" required/>
+                        </div>
                     </div>
                     <div class="input-field" id="formulaire">
                         <i class="fas fa-envelope"></i>
                         <input type="email" placeholder="Email" name="email" required/>
+                    </div>
+                    <div class="input-field" id="formulaire">
+                        <select name="type" id="type">
+                            <option value="Etudiant">Public</option>
+                            <option value="Etudiant">Etudiant</option>
+                            <option value="Eleve">Eleve</option>
+                            <option value="Etudiant">Comité d'entreprise</option>
+                            <option value="Etudiant">Etudiant d'art</option>
+                          </select>
+                    </div>
+                    <div class="input-field" id="formulaire">
+                        <select name="type_abon" id="type_abon">
+                            <option value="Etudiant">Mensuel</option>
+                            <option value="Eleve">Mensuel</option>
+                            <option value="Eleve">Annuel</option>
+                          </select>
                     </div>
                     <div class="input-field" id="formulaire">
                         <i class="fas fa-lock"></i>
