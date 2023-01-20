@@ -28,7 +28,7 @@ body {
 .container {
     position: relative;
     width: 70vw;
-    height: 80vh;
+    height: 90vh;
     background: #fff;
     border-radius: 15px;
     box-shadow: 0 4px 20px 0 var(--bgColor-2), 0 6px 20px 0 var(--bgColor-2);
