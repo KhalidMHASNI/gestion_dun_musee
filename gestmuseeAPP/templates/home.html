@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 
@@ -5,10 +6,10 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="https://kit.fontawesome.com/64d58efce2.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="css/home.css" />
+    <link rel="stylesheet" href="{% static 'css/home.css' %}" />
     <link href="https://fonts.googleapis.com/css?family=Josefin+Sans" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer"/>
-    <link rel="icon" type="image/png" href="img/home/darJ.png"/>
+    <link rel="icon" type="image/png" href=" {% static 'img/home/darJ.png'%}"/>
     <title>DarJ-Home</title>
 </head>
 
@@ -17,7 +18,7 @@
 
 <section class="showcase">
         <header>
-        <nav><img src="img/home/darJ.png">
+        <nav><img src="{% static 'img/home/darJ.png'%}" >
             <ul id="action" style="margin-left:42%">
                 <li><a href="#oeuvres" class="hover-underline-animation">Consulter Oeuvres</a></li>
                 <li><a href="#tarif" class="hover-underline-animation">Consulter Tarif</a></li>
@@ -68,19 +69,19 @@
         <div class="col-2">
             <div class="img-slider">
                 <div class="slide active ">
-                      <img src="img/home/oe1.jpg" >
+                      <img src="{% static 'img/home/oe1.jpg'%}" >
                     </div>
                     <div class="slide">
-                      <img src="img/home/oe2.jpg" >
+                      <img src="{% static 'img/home/oe2.jpg'%}" >
                     </div>
                     <div class="slide">
-                      <img src="img/home/oe3.jpg" >                      
+                      <img src="{% static 'img/home/oe3.jpg'%}" >                      
                     </div>
                     <div class="slide">
-                        <img src="img/home/2.jpg" >
+                      <img src="{% static 'img/home/1.jpg'%}" >
                       </div>
                       <div class="slide">
-                        <img src="img/home/1.jpg" >
+                        <img src="{% static 'img/home/2.jpg'%}" >
                       </div>
                     
                 </div>
@@ -265,7 +266,7 @@
                         <li><a href="calendar.html">Calendrier</a></li>
                         
                     </ul>
-                    <img src="img/home/darJ.png">
+                    <img src="{% static 'img/home/darJ.png'%}">
 
                 </div>
 
@@ -340,7 +341,7 @@
 
     </footer>
 
-<script src="js/home.js" ></script>
+<script src="{% static 'js/home.js' %}" ></script>
 
 </body>
 </html>
