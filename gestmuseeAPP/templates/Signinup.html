@@ -16,7 +16,7 @@
     <section class="aa">
     <div class="container">
 
-            <!-- <div class="alert alert-success m-2" id="popup" role="alert"> 
+            <div class="alert alert-success m-2" id="popup" role="alert"> 
                 {% for message in messages %} 
                     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
                      {% if message.tags == 'error' %} 
@@ -57,17 +57,19 @@
                         </script>
                      {% endif %}
                 {% endfor %}
-            </div>  -->
+            </div>  
         
 
             <div class="signin-signup">
                 
                 <!--                    Sign in Forum                 -->
                 <form class="sign-in-form" method="post">
+                    {% csrf_token %}
+                    {{form1.as_p}}
                     <h2 class="title" id="titre1">Connectez-vous</h2>
                     <div class="input-field">
                         <i class="fas fa-user"></i>
-                        <input type="text" placeholder="Email" name="username" required/>
+                        <input type="text" placeholder="Email" name="email" required/>
                     </div>
                     <div class="input-field">
                         <i class="fas fa-lock"></i>
@@ -81,6 +83,8 @@
 
                 <!--                    Sign up Forum                 -->
                 <form class="sign-up-form" method="post">
+                    {% csrf_token %}
+                     {{form2.as_p}}
                     <h2 class="title" id="titre">Inscrivez-vous</h2>
                     <div class="input-name">
                         <div class="input-field" id="test1">
@@ -111,9 +115,9 @@
                     </div>
                     <div class="input-field" id="formulaire">
                         <select name="type_abon" id="type_abon">
-                            <option value="Etudiant">Mensuel</option>
-                            <option value="Eleve">Mensuel</option>
-                            <option value="Eleve">Annuel</option>
+                            <option value="Trimestriel">Trimestriel</option>
+                            <option value="Mensuel">Mensuel</option>
+                            <option value="Annuel">Annuel</option>
                           </select>
                     </div>
                     <div class="input-field" id="formulaire">

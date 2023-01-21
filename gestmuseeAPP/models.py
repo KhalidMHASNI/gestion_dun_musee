@@ -50,7 +50,7 @@ class Manifestation(models.Model):
     date_debut = models.DateField()
     date_fin = models.DateField()
     salle = models.ForeignKey(Salle, on_delete=models.CASCADE)
-    image = models.ImageField(upload_to='static/img/manifestation')
+    image = models.ImageField(upload_to='gestmuseeAPP\static\img\manifestation')
     notes = models.TextField(blank=True, null=True)
 
 class Conference(models.Model):
@@ -60,7 +60,7 @@ class Conference(models.Model):
     date_debut = models.DateField()
     duree = models.IntegerField(u'Durée de la conférence', help_text=u'Durée en minutes')
     salle = models.ForeignKey(Salle, on_delete=models.CASCADE)
-    image = models.ImageField(upload_to='static/img/conference')
+    image = models.ImageField(upload_to='gestmuseeAPP\static\img\conference')
     notes = models.TextField(blank=True, null=True)
 
 class Personel(models.Model):
