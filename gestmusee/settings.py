@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'gestmuseeAPP',
+    'schedule',
 ]
 
 MIDDLEWARE = [
@@ -56,7 +57,7 @@ ROOT_URLCONF = 'gestmuseeAPP.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [BASE_DIR/'templates'],
+         
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -78,11 +79,10 @@ WSGI_APPLICATION = 'gestmusee.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        # 'NAME': 'darjamai',
+        'NAME': 'darjamaiDB',
         'USER': 'darjamaiAdmin',
         'PASSWORD': 'darjamaiAdmin',
         'HOST': 'localhost',
-        'OPTIONS': {'options': '-c search_path=darjamaischema'}
     }
 }
 
