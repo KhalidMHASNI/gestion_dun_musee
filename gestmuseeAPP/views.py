@@ -25,6 +25,9 @@ from datetime import date, datetime,timedelta
 def home(request):
 	return render(request,'home.html')
 
+def oeuvres(request):
+	return render(request,'oeuvres.html')
+
 #Signup  page
 def SigninupPage(request):
 	if request.method=='POST' and 'btnform2' in request.POST: 

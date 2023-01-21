@@ -10,4 +10,9 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('',views.home, name="home"),
     path('Signinup/',views.SigninupPage, name="Signinup"),
+<<<<<<< HEAD
+=======
+    path('oeuvres/',views.oeuvres, name="oeuvres")
+
+>>>>>>> c9b40095c7ccfc1da1eb1b311de993ccef558e78
 ]
