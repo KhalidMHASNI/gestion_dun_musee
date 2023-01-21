@@ -2,3 +2,4 @@ Django==4.1.3
 virtualenvwrapper-win
 psycopg2 
 django-scheduler
+Pillow
