@@ -22,7 +22,8 @@ class Abonnee(models.Model):
     date_start = models.DateField()
     date_end = models.DateField()
     numero_credit_carte = models.CharField(max_length=20)
-    password = models.CharField(max_length=255) 
+    password = models.CharField(max_length=255)
+    image = models.ImageField(upload_to='gestmuseeAPP\static\img\data\profile') 
     @classmethod
     def get_info(self, email, password):
         try:
@@ -37,6 +38,7 @@ class Artiste(models.Model):
     date_naissance = models.DateField()
     date_deces = models.DateField(blank=True, null=True)
     nationalite = models.CharField(max_length=255)
+    image = models.ImageField(upload_to='gestmuseeAPP\static\img\data/artiste')
 
 
 class Oeuvre(models.Model):
@@ -44,7 +46,9 @@ class Oeuvre(models.Model):
     artist = models.ForeignKey(Artiste, on_delete=models.CASCADE)
     type_ouevre = models.CharField(max_length=255)
     prix = models.DecimalField(max_digits=10, decimal_places=2)
+    image = models.ImageField(upload_to='gestmuseeAPP\static\img\data\oeuvre')
     type_assurence = models.CharField(max_length=255)
+    notes = models.TextField(blank=True, null=True)
 
 class Salle(models.Model):
     nom = models.CharField(max_length=50)
@@ -57,7 +61,7 @@ class Manifestation(models.Model):
     date_debut = models.DateField()
     date_fin = models.DateField()
     salle = models.ForeignKey(Salle, on_delete=models.CASCADE)
-    image = models.ImageField(upload_to='gestmuseeAPP\static\img\manifestation')
+    image = models.ImageField(upload_to='gestmuseeAPP\static\img\data\manifestation')
     notes = models.TextField(blank=True, null=True)
 
 class Conference(models.Model):
@@ -67,7 +71,7 @@ class Conference(models.Model):
     date_debut = models.DateField()
     duree = models.IntegerField(u'Durée de la conférence', help_text=u'Durée en minutes')
     salle = models.ForeignKey(Salle, on_delete=models.CASCADE)
-    image = models.ImageField(upload_to='gestmuseeAPP\static\img\conference')
+    image = models.ImageField(upload_to='gestmuseeAPP\static\img\data\conference')
     notes = models.TextField(blank=True, null=True)
 
 class Personel(models.Model):
