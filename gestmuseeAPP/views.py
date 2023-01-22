@@ -44,8 +44,6 @@ def SigninupPage(request):
 		password2 = request.POST['cpassword']
 
 
-		print(type_abonnee," ",type_abonnement)
-
 		if password1 == password2 :
 			if Abonnee.objects.filter(email=email).exists():
 				messages.warning(request,'Email taken')
