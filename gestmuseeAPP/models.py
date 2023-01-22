@@ -23,6 +23,13 @@ class Abonnee(models.Model):
     date_end = models.DateField()
     numero_credit_carte = models.CharField(max_length=20)
     password = models.CharField(max_length=255) 
+    @classmethod
+    def get_info(self, email, password):
+        try:
+            abonnee = Abonnee.objects.get(email=email, password=password)
+            return [abonnee.prenom, abonnee.nom, abonnee.email, abonnee.type_abonnement, abonnee.type_abonnee, abonnee.date_start, abonnee.date_end, abonnee.numero_credit_carte]
+        except Abonnee.DoesNotExist:
+            return None
 
 
 class Artiste(models.Model):

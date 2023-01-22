@@ -5,6 +5,7 @@ from django.shortcuts import redirect, render
 from django.contrib.auth import login, authenticate
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User,auth
+
 from django.contrib import messages
 from django.http import JsonResponse
 
@@ -68,18 +69,20 @@ def SigninupPage(request):
 		else:
 			messages.info(request,'password not matching')
 			return redirect('Signinup')
-			
-	if request.method== 'POST' and 'btnform1' in request.POST:
-		email = request.POST['email']
-		password = request.POST['password']
 
-		user = auth.authenticate(username=email,password=password) 
-		
-		if user is not None:
-			auth.login(request,user)	
-			return redirect('home')
-		else :
-			messages.error(request,"Password missmatchs")
-			return redirect('Signinup')
+
+	if request.method== 'POST' and 'btnform1' in request.POST:
+			email = request.POST['email']
+			password = request.POST['password']
+			abonnee_info = Abonnee.get_info(email, password)
+
+			if abonnee_info:
+				#print("AAAAAAAAAAAA ",abonnee_info)
+				return redirect('home')
+			else:
+				messages.error(request, "Invalid credentials")
+				return redirect('Signinup')
+
 	else: 
 		return render(request, 'Signinup.html')
+
