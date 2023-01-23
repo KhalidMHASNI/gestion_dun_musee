@@ -22,7 +22,7 @@ from django.template.loader import get_template
 from datetime import date, datetime,timedelta
 from dateutil.relativedelta import relativedelta
 
-
+from .forms import ReservationForm
 
 # Create your views here.
 def home(request):
@@ -84,3 +84,20 @@ def SigninupPage(request):
 	else: 
 		return render(request, 'Signinup.html')
 
+def make_reservation(request):
+    if request.method == 'POST':
+        form = ReservationForm(request.POST)
+        if form.is_valid():
+            reservation = form.save(commit=False)
+            date = form.cleaned_data['date']
+            calendriermusee = CalendrierMusee.objects.get(date=date)
+            if calendriermusee.type_of_reservation == 'available':
+                reservation.save()
+                return redirect('success')
+            else:
+                return redirect('unavailable')
+    else:
+        form = ReservationForm()
+    return render(request, 'make_reservation.html', {'form': form})
+
+	

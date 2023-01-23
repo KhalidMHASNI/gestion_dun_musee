@@ -78,7 +78,7 @@ WSGI_APPLICATION = 'gestmusee.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'darjamai',
+        'NAME': 'darjamaiDB',
         'USER': 'darjamaiAdmin',
         'PASSWORD': 'darjamaiAdmin',
         'HOST': 'localhost',
