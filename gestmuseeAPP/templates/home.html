@@ -20,10 +20,10 @@
         <header>
         <nav><img src="{% static 'img/home/darJ.png'%}" >
             <ul id="action" style="margin-left:42%">
-                <li><a href="#oeuvres" class="hover-underline-animation">Consulter Oeuvres</a></li>
-                <li><a href="#tarif" class="hover-underline-animation">Consulter Tarif</a></li>
-                <li><a href="#calendar" class="hover-underline-animation">Consulter calendrier</a></li>
-                <li><a href="#aboutus" class="hover-underline-animation">Propos de nous</a></li>
+              <li><a href="#oeuvres" class="hover-underline-animation">Oeuvres</a></li>
+              <li><a href="#abonnement" class="hover-underline-animation">Abonnement infos</a></li>
+              <li><a href="#calendar" class="hover-underline-animation">Calendrier</a></li>
+              <li><a href="#tarifs" class="hover-underline-animation">Infos sur Tarifs</a></li>
                 <a href="Signinup" class="btn1">S'abonner</a>
             </ul>
             <!-- new button hamburger -->
@@ -254,93 +254,217 @@
     </div>
 </section>
 
+<section class="appah1" id="abonnement">
+  
+  <div class="row">
+    <div class="col-1">
+      <h1>Abonnement</h1>
+  </div>
+    <div class="container-card">
+      <div class="card">
+          <div class="card-title">
+              <h2>Trimestriel</h2>
+              <p><Span>150</Span>MAD /Public</p>
+          </div>
+          <div class="card-content">
+              <ul>
+                <li><i class="fa fa-check-circle"></i>100 MAD /Etudiants</li>
+                <li><i class="fa fa-check-circle"></i>75 MAD /Eleves</li>
+                <li><i class="fa fa-check-circle"></i>125 MAD /Comité d'entreprise</li>
+                <li><i class="fa fa-check-circle"></i>Gratuit /Etudiant d'art</li>
+              </ul>
+          </div>
+      </div>
+      <div class="card">
+          <div class="card-title">
+              <h2>Mensuel</h2>
+              <p><Span>60</Span>MAD /Public</p>
+          </div>
+          <div class="card-content">
+              <ul>
+                <li><i class="fa fa-check-circle"></i>40 MAD /Etudiants</li>
+                <li><i class="fa fa-check-circle"></i>30 MAD /Eleves</li>
+                <li><i class="fa fa-check-circle"></i>50 MAD /Comité d'entreprise</li>
+                <li><i class="fa fa-check-circle"></i>Gratuit /Etudiant d'art</li>
+              </ul>
+          </div>
+      </div>
+      <div class="card">
+          <div class="card-title">
+              <h2>Annuel</h2>
+              <p><Span>600</Span>MAD /Public</p>
+          </div>
+          <div class="card-content">
+              <ul>
+                  <li><i class="fa fa-check-circle"></i>400 MAD /Etudiants</li>
+                  <li><i class="fa fa-check-circle"></i>300 MAD /Eleves</li>
+                  <li><i class="fa fa-check-circle"></i>500 MAD /Comité d'entreprise</li>
+                  <li><i class="fa fa-check-circle"></i>Gratuit /Etudiant d'art</li>
+              </ul>
+          </div>
+      </div>
+    </div>
+      
+  </div>
+
+</section>
+
+<section class="appah2" id="tarifs">
+  <h1>Tarifs</h1>
+  <div class="row">
+
+    <div class="service">
+      <i class="fa-solid fa-user"></i>
+      <h2>Public </h2>
+    <p>Individuel:30 MAD<br>
+    En groupe: 25 MAD <br>
+    Guidé: 40 MAD</p>
+    </div>
+
+    <div class="service">
+      <i class="fa-solid fa-user-graduate"></i>
+      <h2>Etudiants </h2>
+      <p>Individuel:20 MAD<br>
+      En groupe: 15 MAD<br>
+      Guidé: 30 MAD</p>
+    </div>
+
+    <div class="service">
+      <i class="fa-solid fa-user-graduate"></i>
+      <h2>Eleves </h2>
+      <p>Individuel:15 MAD<br>
+      En groupe: 10 MAD <br>
+      Guidé: 20 MAD</p>
+    </div>
+
+
+    <div class="service">
+      <i class="fa-solid fa-users"></i>
+      <h2>Comité d'entreprise </h2>
+      <p>Individuel:25 MAD<br>
+      En groupe: 20 MAD <br>
+      Guidé: 40 MAD</p>
+    </div>
+
+
+    <div class="service">
+      <i class="fa-solid fa-user-graduate"></i>
+      <h2>Etudiant d'art </h2>
+      <p>Individuel: Gratuit <br>
+        En groupe: Gratuit <br>
+        Guidé: Gratuit</p>
+    </div>
+
+
+
+
+
+
+  </div>
+
+
+</section>
+
 
 <footer class="footer">
-        <div class="container">
-            <div class="row">
-                <div class="footer-col">
-                    <h4>Application</h4>
-                    <ul>
-                        <li><a href="#aboutus">A propos de nous</a></li>
-                        <li><a href="oeuvres.html">Nos Oeuvres</a></li>
-                        <li><a href="tarif.html">Tarifs</a></li>
-                        <li><a href="calendar.html">Calendrier</a></li>
-                        
-                    </ul>
-                    <img src="{% static 'img/home/darJ.png'%}">
+  <div class="container">
+      <div class="row">
+          <div class="footer-col">
+              <h4>Application</h4>
+              <ul>
+                  <li><a href="oeuvres.html">Nos Oeuvres</a></li>
+                  <li><a href="#abonnement">Abonnement infos</a></li>
+                  <li><a href="#tarifs">Tarifs visite</a></li>
+                  <li><a href="calendar.html">Calendrier</a></li>
+                  
+              </ul>
+              <img src="img/home/darJ.png">
 
-                </div>
+          </div>
 
-                <div class="footer-col">
-                    <h4>Musée</h4>
-                    <ul>
-                        <li><a href="#">Les musées/Monde</a></li>
-                        <li><a href="#">Les musées/Maroc</a></li>
-                        <li><a href="#">Les musées/Meknes</a></li>
-                        <li><a href="#">Dar Jamaï</a></li>
-                    </ul>
-                </div>
+          <div class="footer-col">
+              <h4>Musée</h4>
+              <ul>
+                  <li><a href="#">Les musées/Monde</a></li>
+                  <li><a href="#">Les musées/Maroc</a></li>
+                  <li><a href="#">Les musées/Meknes</a></li>
+                  <li><a href="#">Dar Jamaï</a></li>
+              </ul>
+          </div>
 
-                <div class="footer-col">
-                    <h4>follow us</h4>
+          <div class="footer-col">
+              <h4>follow us</h4>
 
-                        <div class="social-links">
-                            <h5 id="name">
-                                Yassine Ourara
-                            </h5>
-                            
-                                <a href="https://github.com/YassineOurara" target="_blank">
-                                    <em id="gt" class="fa-brands fa-github"></em>
-                                </a>
-                                <a href="https://www.instagram.com/_don.yassine" target="_blank">
-                                    <em id="ig" class="fa-brands fa-instagram"></em>
-                                </a>
-                                <a href="https://www.linkedin.com/in/yassine-ourara/" target="_blank">
-                                    <em id="li" class="fa-brands fa-linkedin"></em>
-                                </a>
-                            
-                        </div>
-                    
-                        <div class="social-links">
-                            <br>
-                            <h5 id="name">
-                                Khalid Mhasni
-                            </h5>
-                            <a href="https://github.com/KhalidMHASNI" target="_blank">
-                                <em id="gt" class="fa-brands fa-github"></em>
-                            </a>
-                            <a href="https://www.instagram.com" target="_blank">
-                                <em id="ig" class="fa-brands fa-instagram"></em>
-                            </a>
-                            <a href="https://www.linkedin.com/in/khalid-mhasni-637b94209/" target="_blank">
-                                <em id="li" class="fa-brands fa-linkedin"></em>
-                            </a>
-                            
-                        </div> 
-                    </div>
+                  <div class="social-links">
+                      <h5 id="name">
+                          Yassine Ourara
+                      </h5>
+                      
+                          <a href="https://github.com/YassineOurara" target="_blank">
+                              <em id="gt" class="fa-brands fa-github"></em>
+                          </a>
+                          <a href="https://www.instagram.com/_don.yassine" target="_blank">
+                              <em id="ig" class="fa-brands fa-instagram"></em>
+                          </a>
+                          <a href="https://www.linkedin.com/in/yassine-ourara/" target="_blank">
+                              <em id="li" class="fa-brands fa-linkedin"></em>
+                          </a>
+                      
+                  </div>
+              
+                  <div class="social-links">
+                      <br>
+                      <h5 id="name">
+                          Khalid Mhasni
+                      </h5>
+                      <a href="https://github.com/KhalidMHASNI" target="_blank">
+                          <em id="gt" class="fa-brands fa-github"></em>
+                      </a>
+                      <a href="https://www.instagram.com" target="_blank">
+                          <em id="ig" class="fa-brands fa-instagram"></em>
+                      </a>
+                      <a href="https://www.linkedin.com/in/khalid-mhasni-637b94209/" target="_blank">
+                          <em id="li" class="fa-brands fa-linkedin"></em>
+                      </a>
+                      
+                  </div> 
+              </div>
 
-                    <div class="footer-col">
-                        <h4>Localisation</h4>
-                        <!-- <ul>
-                            <li><a href="#">watch</a></li>
-                            <li><a href="#">bag</a></li>
-                            <li><a href="#">shoes</a></li>
-                            <li><a href="#">dress</a></li>
-                        </ul> -->
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3217.010287183864!2d-5.5627468!3d33.8926952!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xda05ad5fa3c81c3%3A0x8273709182748834!2sDar%20Jamai%20Museum!5e1!3m2!1sen!2sma!4v1673728420435!5m2!1sen!2sma"  width="420" height="250" 
-                         class="map" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-                    </div>
+              <div class="footer-col">
+                  <h4>Localisation</h4>
+                  <!-- <ul>
+                      <li><a href="#">watch</a></li>
+                      <li><a href="#">bag</a></li>
+                      <li><a href="#">shoes</a></li>
+                      <li><a href="#">dress</a></li>
+                  </ul> -->
+                  <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3217.010287183864!2d-5.5627468!3d33.8926952!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xda05ad5fa3c81c3%3A0x8273709182748834!2sDar%20Jamai%20Museum!5e1!3m2!1sen!2sma!4v1673728420435!5m2!1sen!2sma"  width="420" height="250" 
+                   class="map" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+              </div>
 
-                </div>
-            </div>
-            <a class="gotopbtn" href="#"> <em class="fas fa-arrow-up"></em> </a>
+          </div>
+      </div>
+      <a class="gotopbtn" href="#"> <em class="fas fa-arrow-up"></em> </a>
 
+  </div>
+
+  <div id="bottom" class="style-1">
+    <div class="sanfran-container">
+        <div class="bottom-bar-inner-wrap">
+            <div class="bottom-bar-copyright clearfix">
+                
+                                    <div id="copyright">
+                        ©2023 Dar-J. Tous droits réservés. By <a href="https://www.linkedin.com/in/khalid-mhasni-637b94209/" target="_blank">KhalidMHASNI</a> &amp; <a href="https://www.linkedin.com/in/yassine-ourara/" target="_blank">YassineOURARA</a>                    </div>
+                
+                
+                            </div>
         </div>
-        
+    </div>
+  
 
 
 
-    </footer>
+</footer>
 
 <script src="{% static 'js/hm.js' %}" ></script>
 

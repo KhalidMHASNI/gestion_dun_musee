@@ -46,8 +46,8 @@
 :root {
     --primaryColor: #030BA6;
     --secondaryColor-1: #3269D9;
-    --bgColor-1: #F2B441;
-    --bgColor-2: #D93D04;
+    --bgColor-1: #cf2e2e;
+    --bgColor-2: #ff6900;
     --footerColor: #F2E205;
     --padding: 8%;
 }
@@ -82,7 +82,7 @@
 }
 
 html {
-    font-family: 'Poppins', sans-serif;
+    font-family: 'poppins', sans-serif;
     font-size: 16px;
     color: var(--primaryColor);
 }
@@ -170,23 +170,23 @@ p {
 *******************************************/
 
 nav {
-    background-color: #1c1c1c;
+    background-color: #3c3c3c;
     top: 0;
     left: 0;
     width: 100%;
-    height: 13vh;
+    height: 11vh;
     z-index: 1000;
     padding: 1rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    opacity: 0.99;
+    opacity: 0.9;
     position: fixed;
 }
 
 nav img {
-    height: 200px;
-    width: 200px; 
+    height: 150px;
+    width: 150px; 
     margin-top:-1.5rem; 
     margin-right:-300px;
     margin-left: 0.1rem;
@@ -198,7 +198,7 @@ nav img {
 nav ul li {
     list-style-type: none;
     display: inline-block;
-    margin: 0.8rem 1.5rem;
+    margin: 0.8rem 0.5rem;
 
 }
 nav ul li a {
@@ -624,7 +624,7 @@ border-width: 0px 8px 0px 0px;
 .appah1  {
     display: flex;
     width: 100%;
-    background: snow;
+    background: var(--bgColor-2);
     overflow: hidden;
 }
 .appah1 .col-1, .appah1 .col-2{
@@ -644,7 +644,7 @@ border-width: 0px 8px 0px 0px;
     font-size: 60px;
     line-height: 80px;
     letter-spacing: 2px;
-    color: var(--bgColor-2);
+    color: white;
 }
 .appah1 a {
     padding: 15px 40px ;
@@ -666,20 +666,18 @@ border-width: 0px 8px 0px 0px;
     background-color: black;
     color: #fff;
 }
-.appah1 .col-1 p {
-    color: #777;
-    line-height: 22px;
-    margin: 15px 0 30px;
-}
+
 
 .appah1 .row .container-card {
     width: 100%;
     height: 70vh;
-    margin: auto;
+    margin-top: -7rem;
     display: flex;
     align-items: center;
     justify-content: space-around;
-    color: white;
+    display: flex;
+    margin-left: 5rem;
+    color: var(--bgColor-1);
 }
 
 .container-card  .card{
@@ -688,9 +686,10 @@ border-width: 0px 8px 0px 0px;
     padding: 10px 0;
     margin-top: -3rem;
     text-align: center;
-    background: linear-gradient(135deg, black 0%, #bfbfbf 100%);
+    /* background: linear-gradient(135deg, black 0%, #bfbfbf 100%); */
+    background: white;
     border-radius: 1px;
-    box-shadow: 2px 5px 15px var(--bgColor-2);
+    box-shadow: 2px 5px 15px white;
     transition: transform 0.3s;
 }
 
@@ -712,6 +711,12 @@ border-width: 0px 8px 0px 0px;
 .container-card  .card .card-title p span{
     font-size: 40px;
     padding: 0 5px;
+    color: var(--bgColor-1);
+}
+
+.container-card  .card .card-title p {
+
+    color: var(--bgColor-2);
 }
 
 .container-card  .card .card-content ul{
@@ -786,8 +791,95 @@ border-width: 0px 8px 0px 0px;
     font-size: 22px;
   }
 
-  
+/*******************************************/
+/******************Tarifs infos SECTION
+*******************************************/
 
+.appah2{
+    width: 100%;
+    height: 80vh;
+    padding: 0 8%;
+}
+
+.appah2 h1 {
+    text-align: center;
+    padding-top: 10%;
+    margin-bottom: 60px;
+    font-weight: 600;
+    position: relative;
+    color: var(--bgColor-2);
+}
+
+.appah2 h1::after{
+    content: '';
+    background: var(--bgColor-1);
+    width: 100px;
+    height: 5px;
+    position: absolute;
+    bottom: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+
+}
+
+.appah2 .row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    grid-gap: 30px;
+}
+
+.service {
+    text-align: center;
+    padding: 25px 10px;
+    border-radius: 5px;
+    font-size: 14px;
+    cursor: pointer;
+    background: transparent;
+    transition:  transform 0.5s, background 0.5s;
+}
+.service i {
+    font-size: 40px;
+    margin-bottom: 10px;
+    color: var(--bgColor-2);
+}
+
+.service h2 {
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: #777;
+}
+
+.service h4 {
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: #777;
+}
+
+.service:hover h2 {
+    color: #fff;
+}
+.service:hover h4 {
+    color: #fff;
+}
+.service:hover p {
+    color: #fff;
+}
+
+.service p {
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: #777;
+}
+
+.service:hover{
+    background: var(--bgColor-2);
+    color: #fff;
+    transform: scale(1.05);
+}
+
+.service:hover i{
+    color: white;
+}
 /******************************************
 ******************REVEAL???????????
 *******************************************/
@@ -853,7 +945,7 @@ ul{
 	position: absolute;
 	left:0;
 	bottom: -10px;
-	background-color: var(--bgColor-1);
+	background-color: var(--bgColor-2);
 	height: 2px;
 	box-sizing: border-box;
 	width: 50px;
@@ -931,9 +1023,35 @@ ul{
 }
 .map:hover {
     border-width: 4px 0px 0px 0px;
-    border-color: var(--bgColor-1); 
+    border-color: var(--bgColor-2); 
     transform: scale(1.1);
     transition: 0.3s;
+}
+
+#bottom {
+    color: #fff;
+    height: 75px;
+    width: 100%;
+    background-color: #1c1c1c;
+    position: absolute;
+}
+.sanfran-container {
+    width: 1190px;
+    margin: 0 auto;
+    max-width: 90%;
+}
+#bottom .bottom-bar-inner-wrap {
+    padding: 30px 0 27px;
+}
+#bottom.style-1 .bottom-bar-copyright {
+    text-align: center;
+}
+#copyright a{
+    color: #b1b1b1;
+    text-decoration: none;
+}
+#copyright a:hover{
+    color: var(--bgColor-2);
 }
 /* ////////////////////////// */
 /* ////////////////////////// */
@@ -1395,3 +1513,8 @@ ul{
         width: 60%;
     }
 }
+
+
+
+
+
