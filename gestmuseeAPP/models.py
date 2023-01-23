@@ -1,3 +1,4 @@
+from datetime import timedelta, timezone
 from distutils.command.upload import upload
 from email.policy import default
 from enum import auto
@@ -97,6 +98,12 @@ class CalendrierMusee(models.Model):
     date = models.DateField()
     reason = models.CharField(max_length=255, null=True, blank=True)
     type_of_reservation = models.CharField(max_length=255, null=True, blank=True)
+    def next_two_weeks_dates(self):
+        two_weeks_from_now = timezone.now() + timedelta(weeks=2)
+        dates = self.objects.filter(date__range=[timezone.now(), two_weeks_from_now]).values_list('date', flat=True)
+        print(dates)
+        return dates
+
 
 
 class Reservation(models.Model):

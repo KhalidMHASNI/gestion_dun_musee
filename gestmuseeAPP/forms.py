@@ -1,4 +1,4 @@
-from datetime import datetime, timedelta
+from datetime import datetime, timedelta,date
 from django.utils import timezone
 from django import forms
 from gestmuseeAPP.models import CalendrierMusee, Reservation, Schedule
@@ -27,6 +27,8 @@ class ScheduleForm(forms.ModelForm):
             date += datetime.timedelta(days=1)
         return date
 
+from datetime import date, timedelta
+
 class ReservationForm(forms.ModelForm):
     class Meta:
         model = Reservation
@@ -34,8 +36,6 @@ class ReservationForm(forms.ModelForm):
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        now = timezone.now()
-        two_weeks_from_now = now + timedelta(weeks=2)
-        available_dates = CalendrierMusee.objects.filter(date__range=[now, two_weeks_from_now], type_of_reservation='available')
-        print(date__range=[now, two_weeks_from_now])
-        self.fields['date'].queryset = available_dates
+        two_weeks_from_now = date.today() + timedelta(weeks=2)
+        self.fields['date'].widget = forms.SelectDateWidget()
+        self.fields['date'].queryset = CalendrierMusee.objects.exclude(date__range=[date.today(), two_weeks_from_now])
