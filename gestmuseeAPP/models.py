@@ -4,6 +4,7 @@ from enum import auto
 from math import fabs
 import uuid
 import random
+from xml.dom import ValidationErr
 # User model 
 from django.db import models
 from django.contrib.auth.models import User
@@ -76,7 +77,7 @@ class Conference(models.Model):
 
 class Personel(models.Model):
     nom = models.CharField(max_length=50)
-    Prenom = models.CharField(max_length=50)
+    prenom = models.CharField(max_length=50)
     is_available = models.BooleanField(default=True)
 
     def check_availability(self, date):
@@ -92,25 +93,21 @@ class Schedule(models.Model):
     end_time = models.TimeField()
     date = models.DateField()
 
-'''
-@receiver(post_save, sender=User)
-def create_user_profile(sender, instance, created, **kwargs):
-    try:
-        instance.profile.save()
-    except ObjectDoesNotExist:
-        Profile.objects.create(user=instance)
-
-@receiver(post_save, sender=User)
-def save_user_profile(sender, instance, **kwargs):
-    instance.profile.save()
+class CalendrierMusee(models.Model):
+    date = models.DateField()
+    reason = models.CharField(max_length=255, null=True, blank=True)
+    type_of_reservation = models.CharField(max_length=255, null=True, blank=True)
 
 
+class Reservation(models.Model):
+    abonnee = models.ForeignKey(Abonnee, on_delete=models.CASCADE)
+    date = models.ForeignKey(CalendrierMusee, on_delete=models.CASCADE)
+    type_of_reservation = models.CharField(max_length=255)
 
-# Create your models here.
-class Destination(models.Model):
-    name = models.CharField(max_length=50)
-    img = models.ImageField(upload_to='img')
-    desc = models.TextField()
-    price = models.IntegerField()
-    offer = models.BooleanField(default=False)
-'''
+    def save(self, *args, **kwargs):
+        if not self.reason:
+            self.reason = None
+        if not self.type_of_reservation:
+            self.type_of_reservation = None
+        super().save(*args, **kwargs)
+

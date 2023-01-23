@@ -12,5 +12,8 @@ urlpatterns = [
     path('',views.home, name="home"),
     path('Signinup/',views.SigninupPage, name="Signinup"),
     path('oeuvres/',views.oeuvres, name="oeuvres"),
-    path('calendar/',views.oeuvres, name="calendar")
+    path('calendar/',views.calendrier, name="calendar"),
+        path('panel/',views.panel, name="panel"),
+
+    path('make_reservation/', views.make_reservation, name='make_reservation')
 ]

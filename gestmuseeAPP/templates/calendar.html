@@ -1,0 +1,245 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <script src="https://kit.fontawesome.com/64d58efce2.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="{%static 'css/calendar.css'%}" />
+    <link href="https://fonts.googleapis.com/css?family=Josefin+Sans" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer"/>
+    <link rel="icon" type="image/png" href="{%static 'img/home/darJ.png'%}"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DarJ-Calendar</title>
+</head>
+
+<body>
+    
+    <section class="appah" id="calendar">
+        <header>
+            <nav><img src="{%static 'img/home/darJ.png'%}">
+                <ul id="action" style="margin-left:42%">
+                    <li><a href="home.html" class="hover-underline-animation">Acceuil</a></li>
+                    <!-- <li> <a href="Signinup.html" class="btn1">S'abonner</a></li> -->
+                </ul>
+              </nav>
+            </header>
+        <div class="row">
+            <div class="col-1">
+                <h1>Calendrier</h1>
+                <p>Le palais Dar Jamaï fut édifié en 1882 dans la ville de Meknès au Maroc par Mohamed ben Larbi Jamaï.
+                    Pour consulter calendrier veuillez cliquer le boutton ci-dessus
+                 </p>
+            </div>
+            <div class="col-2">
+              <div class="event-container">
+                <h3 class="year">2023</h3>
+          
+                <div class="event">
+                  <div class="event-left">
+                    <div class="event-date">
+                      <div class="date">8</div>
+                      <div class="month">Jan</div>
+                    </div>
+                  </div>
+          
+                  <div class="event-right">
+                    <h3 class="event-title">Titre</h3>
+          
+                    <div class="event-description">
+                      Lorem ipsum dolor, sit amet consectetur adipisicing elit. Accusamus,
+                      ratione.
+                    </div>
+          
+                    <div class="event-timing">
+                      <!-- <img src="img/home/time.png" alt=""/>--> 10:00 am 
+                    </div>
+                  </div>
+                </div>
+          
+          
+                <div class="event">
+                  <div class="event-left">
+                    <div class="event-date">
+                      <div class="date">4</div>
+                      <div class="month">Apr</div>
+                    </div>
+                  </div>
+          
+                  <div class="event-right">
+                    <h3 class="event-title">Titre</h3>
+          
+                    <div class="event-description">
+                      Lorem ipsum dolor, sit amet consectetur adipisicing elit. Accusamus,
+                      ratione.
+                    </div>
+          
+                    <div class="event-timing">
+                      <!-- <img src="img/home/time.png" alt="" />--> 10:00 am 
+                    </div>
+                  </div>
+                </div>
+          
+                <div class="event">
+                  <div class="event-left">
+                    <div class="event-date">
+                      <div class="date">8</div>
+                      <div class="month">Jun</div>
+                    </div>
+                  </div>
+          
+                  <div class="event-right">
+                    <h3 class="event-title">Titre</h3>
+          
+                    <div class="event-description">
+                      Lorem ipsum dolor, sit amet consectetur adipisicing elit. Accusamus,
+                      ratione.
+                    </div>
+          
+                    <div class="event-timing">
+                      <!-- <img src="img/home/time.png" alt="" /> -->10:00 am 
+                    </div>
+                  </div>
+                </div>
+
+                <div class="event">
+                    <div class="event-left">
+                      <div class="event-date">
+                        <div class="date">30</div>
+                        <div class="month">Jan</div>
+                      </div>
+                    </div>
+            
+                    <div class="event-right">
+                      <h3 class="event-title">Titre</h3>
+            
+                      <div class="event-description">
+                        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Accusamus,
+                        ratione.
+                      </div>
+            
+                      <div class="event-timing">
+                        <!-- <img src="img/home/time.png" alt=""/>--> 10:00 am 
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="event">
+                    <div class="event-left">
+                      <div class="event-date">
+                        <div class="date">1</div>
+                        <div class="month">Dec</div>
+                      </div>
+                    </div>
+            
+                    <div class="event-right">
+                      <h3 class="event-title">Titre</h3>
+            
+                      <div class="event-description">
+                        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Accusamus,
+                        ratione.
+                      </div>
+            
+                      <div class="event-timing">
+                        <!-- <img src="img/home/time.png" alt=""/>--> 10:00 am 
+                      </div>
+                    </div>
+                  </div>
+
+              </div>
+                    
+            </div>
+        </div>
+    
+    </section>
+    
+    <footer class="footer">
+      <div class="container">
+          <div class="row">
+              <div class="footer-col">
+                  <h4>Application</h4>
+                  <ul>
+                    <li><a href="/">Acceuil</a></li>
+                      <li><a href="/#aboutus">A propos de nous</a></li>
+                      <li><a href="/oeuvres">Nos Oeuvres</a></li>
+                      <li><a href="/#tarifs">Tarifs</a></li>
+                                        
+                  </ul>
+                  <img src="{%static 'img/home/darJ.png'%}">
+
+              </div>
+
+              <div class="footer-col">
+                  <h4>Musée</h4>
+                  <ul>
+                      <li><a href="#">Les musées/Monde</a></li>
+                      <li><a href="#">Les musées/Maroc</a></li>
+                      <li><a href="#">Les musées/Meknes</a></li>
+                      <li><a href="#">Dar Jamaï</a></li>
+                  </ul>
+              </div>
+
+              <div class="footer-col">
+                  <h4>follow us</h4>
+
+                      <div class="social-links">
+                          <h5 id="name">
+                              Yassine Ourara
+                          </h5>
+                          
+                              <a href="https://github.com/YassineOurara" target="_blank">
+                                  <em id="gt" class="fa-brands fa-github"></em>
+                              </a>
+                              <a href="https://www.instagram.com/_don.yassine" target="_blank">
+                                  <em id="ig" class="fa-brands fa-instagram"></em>
+                              </a>
+                              <a href="https://www.linkedin.com/in/yassine-ourara/" target="_blank">
+                                  <em id="li" class="fa-brands fa-linkedin"></em>
+                              </a>
+                          
+                      </div>
+                  
+                      <div class="social-links">
+                          <br>
+                          <h5 id="name">
+                              Khalid Mhasni
+                          </h5>
+                          <a href="https://github.com/KhalidMHASNI" target="_blank">
+                              <em id="gt" class="fa-brands fa-github"></em>
+                          </a>
+                          <a href="https://www.instagram.com" target="_blank">
+                              <em id="ig" class="fa-brands fa-instagram"></em>
+                          </a>
+                          <a href="https://www.linkedin.com/in/khalid-mhasni-637b94209/" target="_blank">
+                              <em id="li" class="fa-brands fa-linkedin"></em>
+                          </a>
+                          
+                      </div> 
+                  </div>
+
+                  <div class="footer-col">
+                      <h4>Localisation</h4>
+                      <!-- <ul>
+                          <li><a href="#">watch</a></li>
+                          <li><a href="#">bag</a></li>
+                          <li><a href="#">shoes</a></li>
+                          <li><a href="#">dress</a></li>
+                      </ul> -->
+                      <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3217.010287183864!2d-5.5627468!3d33.8926952!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xda05ad5fa3c81c3%3A0x8273709182748834!2sDar%20Jamai%20Museum!5e1!3m2!1sen!2sma!4v1673728420435!5m2!1sen!2sma"  width="420" height="250" 
+                       class="map" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                  </div>
+
+              </div>
+          </div>
+          <a class="gotopbtn" href="#"> <em class="fas fa-arrow-up"></em> </a>
+
+      </div>
+      
+
+
+
+  </footer>
+
+</body>
+
+</html>
