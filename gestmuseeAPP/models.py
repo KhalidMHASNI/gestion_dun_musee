@@ -1,18 +1,6 @@
-from datetime import timedelta, timezone
-from distutils.command.upload import upload
-from email.policy import default
-from enum import auto
-from math import fabs
-import uuid
-import random
-from xml.dom import ValidationErr
-# User model 
+from datetime import timedelta, timezone,datetime
 from django.db import models
-from django.contrib.auth.models import User
-from django.db.models.signals import post_save
-from django.dispatch import receiver
-from django.core.exceptions import ObjectDoesNotExist
-#Schedular
+from django.contrib.auth.models import AbstractBaseUser, BaseUserManager
 
 
 class Abonnee(models.Model):
@@ -25,14 +13,18 @@ class Abonnee(models.Model):
     date_end = models.DateField()
     numero_credit_carte = models.CharField(max_length=20)
     password = models.CharField(max_length=255)
+    last_login = models.DateTimeField(null=True, blank=True)
     image = models.ImageField(upload_to='gestmuseeAPP\static\img\data\profile') 
+
     @classmethod
     def get_info(self, email, password):
         try:
             abonnee = Abonnee.objects.get(email=email, password=password)
-            return [abonnee.prenom, abonnee.nom, abonnee.email, abonnee.type_abonnement, abonnee.type_abonnee, abonnee.date_start, abonnee.date_end, abonnee.numero_credit_carte]
+            return [abonnee.prenom, abonnee.nom, abonnee.email, abonnee.type_abonnement, abonnee.type_abonnee, abonnee.date_start, abonnee.numero_credit_carte, abonnee.password, abonnee.image]
         except Abonnee.DoesNotExist:
             return None
+    def check_password(self, password):
+        return password == self.password
 
 
 class Artiste(models.Model):
@@ -98,10 +90,11 @@ class CalendrierMusee(models.Model):
     date = models.DateField()
     reason = models.CharField(max_length=255, null=True, blank=True)
     type_of_reservation = models.CharField(max_length=255, null=True, blank=True)
-    def next_two_weeks_dates(self):
-        two_weeks_from_now = timezone.now() + timedelta(weeks=2)
-        dates = self.objects.filter(date__range=[timezone.now(), two_weeks_from_now]).values_list('date', flat=True)
-        print(dates)
+
+    @classmethod
+    def next_two_weeks_dates(cls):
+        two_weeks_from_now = datetime.now() + timedelta(weeks=2)
+        dates = cls.objects.filter(date__range=[datetime.now(), two_weeks_from_now]).values_list('date', flat=True)
         return dates
 
 
