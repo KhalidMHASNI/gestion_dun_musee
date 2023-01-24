@@ -1,18 +1,27 @@
-from datetime import timedelta, timezone
-from distutils.command.upload import upload
-from email.policy import default
-from enum import auto
-from math import fabs
-import uuid
-import random
-from xml.dom import ValidationErr
-# User model 
+from datetime import timedelta, timezone,datetime
 from django.db import models
-from django.contrib.auth.models import User
-from django.db.models.signals import post_save
-from django.dispatch import receiver
-from django.core.exceptions import ObjectDoesNotExist
-#Schedular
+from django.contrib.auth.models import AbstractBaseUser, BaseUserManager
+
+class AbonneeManager(BaseUserManager):
+    def create_user(self, email, password, **extra_fields):
+        if not email:
+            raise ValueError('The Email must be set')
+        email = self.normalize_email(email)
+        user = self.model(email=email, **extra_fields)
+        user.set_password(password)
+        user.save()
+        return user
+
+    def create_superuser(self, email, password, **extra_fields):
+        extra_fields.setdefault('is_staff', True)
+        extra_fields.setdefault('is_superuser', True)
+        extra_fields.setdefault('is_active', True)
+
+        if extra_fields.get('is_staff') is not True:
+            raise ValueError('Superuser must have is_staff=True.')
+        if extra_fields.get('is_superuser') is not True:
+            raise ValueError('Superuser must haveis_superuser=True.')
+        return self.create_user(email, password, **extra_fields)
 
 
 class Abonnee(models.Model):
@@ -25,14 +34,48 @@ class Abonnee(models.Model):
     date_end = models.DateField()
     numero_credit_carte = models.CharField(max_length=20)
     password = models.CharField(max_length=255)
+    last_login = models.DateTimeField(null=True, blank=True)
     image = models.ImageField(upload_to='gestmuseeAPP\static\img\data\profile') 
+
+    objects = AbonneeManager()
+    USERNAME_FIELD = 'email'
+    REQUIRED_FIELDS = ['email', 'password']
+
     @classmethod
     def get_info(self, email, password):
         try:
             abonnee = Abonnee.objects.get(email=email, password=password)
-            return [abonnee.prenom, abonnee.nom, abonnee.email, abonnee.type_abonnement, abonnee.type_abonnee, abonnee.date_start, abonnee.date_end, abonnee.numero_credit_carte]
+            return [abonnee.prenom, abonnee.nom, abonnee.email, abonnee.type_abonnement, abonnee.type_abonnee, abonnee.date_start, abonnee.numero_credit_carte, abonnee.password, abonnee.image]
         except Abonnee.DoesNotExist:
             return None
+    def check_password(self, password):
+        return password == self.password
+    USERNAME_FIELD = 'email'
+    REQUIRED_FIELDS = ['prenom', 'nom', 'type_abonnement', 'type_abonnee', 'date_start', 'date_end', 'numero_credit_carte', 'password']
+    objects = AbonneeManager()
+    @classmethod
+    def get_info(self, email, password):
+        try:
+            abonnee = Abonnee.objects.get(email=email, password=password)
+            return [abonnee.prenom, abonnee.nom, abonnee.email, abonnee.type_abonnement, abonnee.type_abonnee, abonnee.date_start, abonnee.numero_credit_carte, abonnee.password, abonnee.image]
+        except Abonnee.DoesNotExist:
+            return None
+    def check_password(self, password):
+        return password == self.password
+
+    @property
+    def is_authenticated(self):
+        return True
+
+    @property
+    def is_anonymous(self):
+        return False
+
+    def is_active(self):
+        return True
+
+    def get_username(self):
+        return self.email
 
 
 class Artiste(models.Model):
@@ -98,10 +141,11 @@ class CalendrierMusee(models.Model):
     date = models.DateField()
     reason = models.CharField(max_length=255, null=True, blank=True)
     type_of_reservation = models.CharField(max_length=255, null=True, blank=True)
-    def next_two_weeks_dates(self):
-        two_weeks_from_now = timezone.now() + timedelta(weeks=2)
-        dates = self.objects.filter(date__range=[timezone.now(), two_weeks_from_now]).values_list('date', flat=True)
-        print(dates)
+
+    @classmethod
+    def next_two_weeks_dates(cls):
+        two_weeks_from_now = datetime.now() + timedelta(weeks=2)
+        dates = cls.objects.filter(date__range=[datetime.now(), two_weeks_from_now]).values_list('date', flat=True)
         return dates
 
 

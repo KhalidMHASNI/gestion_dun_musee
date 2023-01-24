@@ -9,18 +9,18 @@
     <input type="text" id="datepicker">
   </body>
   <script>
-    $( function() {
-    var unavailableDates = CalendarMusee.next_two_weeks_dates()
-      var twoWeeksFromNow = new Date();
-      twoWeeksFromNow.setDate(twoWeeksFromNow.getDate() + 14);
-      $( "#datepicker" ).datepicker({
-        minDate: 0,
-        maxDate: "+14D",
-        beforeShowDay: function(date){
-          var string = jQuery.datepicker.formatDate('yy-mm-dd', date);
-          return [ unavailableDates.indexOf(string) == -1 ]
-        }
-      });
-    } );
+    $(document).ready(function(){
+        var unavailableDates = {{ formatted_dates|safe }};
+        var twoWeeksFromNow = new Date();
+        twoWeeksFromNow.setDate(twoWeeksFromNow.getDate() + 14);
+        $( "#datepicker" ).datepicker({
+          minDate: 0,
+          maxDate: "+14D",
+          beforeShowDay: function(date){
+            var string = jQuery.datepicker.formatDate('yy-mm-dd', date);
+            return [ unavailableDates.indexOf(string) == -1 ]
+          }
+        });
+    });
   </script>
 </html>

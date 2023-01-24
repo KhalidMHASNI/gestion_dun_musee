@@ -27,8 +27,6 @@ class ScheduleForm(forms.ModelForm):
             date += datetime.timedelta(days=1)
         return date
 
-from datetime import date, timedelta
-
 class ReservationForm(forms.ModelForm):
     class Meta:
         model = Reservation
@@ -36,6 +34,6 @@ class ReservationForm(forms.ModelForm):
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        two_weeks_from_now = date.today() + timedelta(weeks=2)
+        two_weeks_from_now = datetime.now() + timedelta(weeks=2)
         self.fields['date'].widget = forms.SelectDateWidget()
         self.fields['date'].queryset = CalendrierMusee.objects.exclude(date__range=[date.today(), two_weeks_from_now])

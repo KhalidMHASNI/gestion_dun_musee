@@ -13,7 +13,7 @@ urlpatterns = [
     path('Signinup/',views.SigninupPage, name="Signinup"),
     path('oeuvres/',views.oeuvres, name="oeuvres"),
     path('calendar/',views.calendrier, name="calendar"),
-        path('panel/',views.panel, name="panel"),
-
-    path('make_reservation/', views.make_reservation, name='make_reservation')
+    path('panel/',views.panel, name="panel"),
+    path('login/', views.login, name='login'),
+    path('make_reservation/', views.some_view, name='make_reservation')
 ]

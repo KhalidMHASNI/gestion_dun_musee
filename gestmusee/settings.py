@@ -51,6 +51,10 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
+
+AUTH_USER_MODEL = 'gestmuseeAPP.Abonnee'
+AUTHENTICATION_BACKENDS = ['django.contrib.auth.backends.ModelBackend', 'path.to.AbonneeManager']
+
 ROOT_URLCONF = 'gestmuseeAPP.urls'
 
 TEMPLATES = [
@@ -78,7 +82,7 @@ WSGI_APPLICATION = 'gestmusee.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        # 'NAME': 'darjamaiDB',
+         'NAME': 'darjamaiDB',
         'USER': 'darjamaiAdmin',
         'PASSWORD': 'darjamaiAdmin',
         'HOST': 'localhost',
