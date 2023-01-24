@@ -21,9 +21,12 @@
 <header>
 
     <div class="user">
-        <!-- <img src="{% static 'images/abonnee_images/{{ abonnee.image.url }}' %}" alt="{{ abonnee.name }}"> -->
+        <img src="{% static 'img\data\profile\hh.jpg' %}" alt="{{ abonnee.name }}"> 
         <!-- <span class="fa-solid fa-user"></span> -->
-        <h3 class="name">Nom & Prenom</h3>
+
+
+          <h3 class="name">{{user.last_name}}</h3>
+
         <p class="post">Abonné à Dar-J</p>
     </div>
 
@@ -49,10 +52,10 @@
 <section class="home" id="welcome">
 
     <h3>HI THERE !</h3>
-    <h1>Bonjour <span>Nom & Prénom</span></h1>
+    <h1>Bonjour <span>{{user.last_name}}  {{user.first_name}}</span></h1>
     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio deserunt aspernatur fugiat minus enim ullam repudiandae sint sed magnam tenetur! Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus, at.
     </p>
-    <a href="/home"><button class="btn">Se déconnecter<i class="fas fa-lock"></i></button></a>
+    <a href="logout"><button class="btn">Se déconnecter<i class="fas fa-lock"></i></button></a>
 
 </section>
 

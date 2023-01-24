@@ -52,9 +52,6 @@ MIDDLEWARE = [
 ]
 
 
-AUTH_USER_MODEL = 'gestmuseeAPP.Abonnee'
-AUTHENTICATION_BACKENDS = ['django.contrib.auth.backends.ModelBackend', 'path.to.AbonneeManager']
-
 ROOT_URLCONF = 'gestmuseeAPP.urls'
 
 TEMPLATES = [
