@@ -629,38 +629,16 @@ header .navbar ul li a:hover{
   }
 
 
-  .calendar .row .col-1 h1 {
-    text-transform: uppercase;
-    font-size: 60px;
-    line-height: 80px;
-    letter-spacing: 2px;
-    color: var(--bgColor-2);
+#datepicker{
+    padding: 10px 15px 10px;
+    font-size: 2.6rem;
+    background:#3333;
+    width:100%;
+    height: 100%;
 }
-
-.calendar .row .col-1 p {
-    color: #777;
-    line-height: 22px;
-    margin: 15px 0 30px;
-    font-size: medium;
+div#ui-datepicker-div{
+    font-size: 2rem;
 }
-
-
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 /* media queries  */
 
@@ -731,3 +709,4 @@ header .navbar ul li a:hover{
     }
 
  }
+ 

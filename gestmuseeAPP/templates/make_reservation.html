@@ -1,26 +1,431 @@
+{%load static%}
 <!DOCTYPE html>
 <html>
   <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DarJ-Panel</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
+
     <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <link rel="stylesheet" href="{%static 'css/panel.css'%}">
+
   </head>
   <body>
-    <input type="text" id="datepicker">
-  </body>
+    
+    <!-- header section starts  -->
+    
+    <header>
+    
+        <div class="user">
+            <img src="{%static  abonnee_data.10 %}" alt=""> -->
+            <!-- <span class="fa-solid fa-user"></span> -->
+            <h3 class="name">{{ abonnee_data.1 }} {{ abonnee_data.2 }}</h3>
+            <p class="post">Abonné à Dar-J</p>
+        </div>
+    
+        <nav class="navbar">
+            <ul>
+                <li><a href="#welcome">#####</a></li>
+                <li><a href="#musee">À prpos du musée</a></li>
+                <li><a href="#calendar">Calendrier</a></li>
+                <!-- <li><a href="#education">education</a></li> -->
+                <li><a href="#oeuvres">Oeuvres</a></li>
+                <li><a href="#visit">Réserver visite</a></li>
+            </ul>
+        </nav>
+    
+    </header>
+    
+    <!-- header section ends -->
+    
+    <div id="menu" class="fas fa-bars"></div>
+    
+    <!-- welcome section starts  -->
+    
+    <section class="home" id="welcome">
+    
+        <h3>HI THERE !</h3>
+        <h1>Bonjour <span>{{ abonnee_data.1 }} {{ abonnee_data.2 }}</span></h1>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio deserunt aspernatur fugiat minus enim ullam repudiandae sint sed magnam tenetur! Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus, at.
+        </p>
+        <a href="/"><button class="btn">Se déconnecter<i class="fas fa-lock"></i></button></a>
+    
+    </section>
+    
+    <!-- musee section starts -->
+    
+    <section class="oeuvres" id="musee">
+        <h1 class="heading"> <span>Dar Jamaï</span> </h1>
+        <div class="row ">
+    
+            <div class="imgWrapper">
+                <div class="contentWrapper2">
+                    <div class="content">
+                        <span class="textWrapper">    
+                            <span></span>
+                        </span>
+                        <h2>zOOM</h2>
+                    </div>
+                </div>
+                <img src="{%static 'img/album1.jpg'%}" alt="">
+            
+            </div>
+           
+            <div class="contentWrapper">
+                <div class="content">
+                    <span class="textWrapper">    
+                        <span></span>
+                    </span>
+                    <h2>À PROPOS DU MUSÉE</h2>
+                    <p>Le Musée Dar Jamaï est à l’origine une résidence privée construite en 1882. De type hispano-mauresque, ce majestueux palais constitue un spécimen des demeures des “familles du makhzen” marocaines de la fin du 19ème siècle.
+                        Appartenant à Mohamed Ben Larbi Jamaï, grand vizir du Sultan Moulay Hassan 1er (1873 – 1894), cette vaste demeure a fini par être vendue au Glaoui de Marrakech, qui ne vint jamais y habiter. En 1912, les Français récupèrent la bâtisse, mais non pas pour y faire un musée. Ils aménagent un hôpital militaire dans sa partie centrale.
+                        Ce n’est qu’en 1920 que le bâtiment est attribué dans sa totalité à l’Inspection régionale des Beaux-Arts qui le transforme en Musée, avec une importante galerie d’artisanat.
+                        Depuis, Dar Jamaï est classé monument historique,
+                        Le Musée Dar Jamaï est à l’origine une résidence privée construite en 1882. De type hispano-mauresque, ce majestueux palais constitue un spécimen des demeures des “familles du makhzen” marocaines de la fin du 19ème siècle.
+                        Appartenant à Mohamed Ben Larbi Jamaï, grand vizir du Sultan Moulay Hassan 1er (1873 – 1894), cette vaste demeure a fini par être vendue au Glaoui de Marrakech, qui ne vint jamais y habiter. En 1912, les Français récupèrent la bâtisse, mais non pas pour y faire un musée. Ils aménagent un hôpital militaire dans sa partie centrale.
+                        Ce n’est qu’en 1920 que le bâtiment est attribué dans sa totalité à l’Inspection régionale des Beaux-Arts qui le transforme en Musée, avec une importante galerie d’artisanat.
+                        Depuis, Dar Jamaï est classé monument historique, et la majeure partie de sa collection est constituée d’objets datant du 19ème et du 20ème siècle.</p>
+                </div>
+            </div>
+            <div class="imgWrapper2">
+                <img src="{%static 'img/album2.jpg'%}" alt="">
+            </div>
+            <div class="imgWrapper2">
+                <img src="{%static 'img/album3.jpg'%}" alt="">
+            </div>
+            
+            
+        </div>
+    
+    </section>
+    
+    
+    
+    <!-- Calendar section starts  -->
+    
+    <section class="calendar" id="calendar">
+    
+    <h1 class="heading"> <span>Calendrier</span> Dar-J </h1>
+    
+    <div class="row">
+        {% comment %} <div class="col-1">
+            <h1>Calendrier</h1>
+            <p>Le palais Dar Jamaï fut édifié en 1882 dans la ville de Meknès au Maroc par Mohamed ben Larbi Jamaï.
+                Pour consulter calendrier veuillez cliquer le boutton ci-dessus
+             </p>
+        </div> {% endcomment %}
+        <div class="col-2">
+          <div class="event-container">
+            <h3 class="year">2023</h3>
+      
+            <div class="event">
+              <div class="event-left">
+                <div class="event-date">
+                  <div class="date">8</div>
+                  <div class="month">Jan</div>
+                </div>
+              </div>
+      
+              <div class="event-right">
+                <h3 class="event-title">Titre</h3>
+                <div class="event-description">
+                  Lorem ipsum dolor, sit amet consectetur adipisicing elit. Accusamus,
+                  ratione.
+                </div>
+      
+                <div class="event-timing">
+                  <!-- <img src="img/home/time.png" alt=""/>--> 10:00 am 
+                </div>
+              </div>
+            </div>
+      
+      
+            <div class="event">
+              <div class="event-left">
+                <div class="event-date">
+                  <div class="date">4</div>
+                  <div class="month">Apr</div>
+                </div>
+              </div>
+      
+              <div class="event-right">
+                <h3 class="event-title">Titre</h3>
+      
+                <div class="event-description">
+                  Lorem ipsum dolor, sit amet consectetur adipisicing elit. Accusamus,
+                  ratione.
+                </div>
+      
+                <div class="event-timing">
+                  <!-- <img src="img/home/time.png" alt="" />--> 10:00 am 
+                </div>
+              </div>
+            </div>
+      
+            <div class="event">
+              <div class="event-left">
+                <div class="event-date">
+                  <div class="date">8</div>
+                  <div class="month">Jun</div>
+                </div>
+              </div>
+      
+              <div class="event-right">
+                <h3 class="event-title">Titre</h3>
+      
+                <div class="event-description">
+                  Lorem ipsum dolor, sit amet consectetur adipisicing elit. Accusamus,
+                  ratione.
+                </div>
+      
+                <div class="event-timing">
+                  <!-- <img src="img/home/time.png" alt="" /> -->10:00 am 
+                </div>
+              </div>
+            </div>
+    
+            <div class="event">
+                <div class="event-left">
+                  <div class="event-date">
+                    <div class="date">30</div>
+                    <div class="month">Jan</div>
+                  </div>
+                </div>
+        
+                <div class="event-right">
+                  <h3 class="event-title">Titre</h3>
+        
+                  <div class="event-description">
+                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Accusamus,
+                    ratione.
+                  </div>
+        
+                  <div class="event-timing">
+                    <!-- <img src="img/home/time.png" alt=""/>--> 10:00 am 
+                  </div>
+                </div>
+              </div>
+    
+              <div class="event">
+                <div class="event-left">
+                  <div class="event-date">
+                    <div class="date">1</div>
+                    <div class="month">Dec</div>
+                  </div>
+                </div>
+        
+                <div class="event-right">
+                  <h3 class="event-title">Titre</h3>
+        
+                  <div class="event-description">
+                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Accusamus,
+                    ratione.
+                  </div>
+        
+                  <div class="event-timing">
+                    <!-- <img src="img/home/time.png" alt=""/>--> 10:00 am 
+                  </div>
+                </div>
+              </div>
+    
+          </div>
+                
+        </div>
+    </div>
+    
+    </section>
+    
+    
+    <!-- education section starts  -->
+    
+    <!-- <section class="education" id="education">
+    
+    <h1 class="heading"> my <span>education</span> </h1>
+    
+    <div class="box-container">
+    
+        <div class="box">
+            <i class="fas fa-graduation-cap"></i>
+            <span>2016</span>
+            <h3>front end development</h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati quos alias praesentium. Id autem provident laborum quae, distinctio eaque temporibus!</p>
+        </div>
+    
+        <div class="box">
+            <i class="fas fa-graduation-cap"></i>
+            <span>2017</span>
+            <h3>front end development</h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati quos alias praesentium. Id autem provident laborum quae, distinctio eaque temporibus!</p>
+        </div>
+    
+        <div class="box">
+            <i class="fas fa-graduation-cap"></i>
+            <span>2018</span>
+            <h3>front end development</h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati quos alias praesentium. Id autem provident laborum quae, distinctio eaque temporibus!</p>
+        </div>
+    
+        <div class="box">
+            <i class="fas fa-graduation-cap"></i>
+            <span>2019</span>
+            <h3>front end development</h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati quos alias praesentium. Id autem provident laborum quae, distinctio eaque temporibus!</p>
+        </div>
+    
+        <div class="box">
+            <i class="fas fa-graduation-cap"></i>
+            <span>2020</span>
+            <h3>front end development</h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati quos alias praesentium. Id autem provident laborum quae, distinctio eaque temporibus!</p>
+        </div>
+    
+        <div class="box">
+            <i class="fas fa-graduation-cap"></i>
+            <span>2021</span>
+            <h3>front end development</h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati quos alias praesentium. Id autem provident laborum quae, distinctio eaque temporibus!</p>
+        </div>
+    
+    </div>
+    
+    </section> -->
+    
+    
+    <!-- Oeuvres section starts  -->
+    
+    <section class="oeuvres" id="oeuvres">
+    
+    <h1 class="heading"> <span>Oeuvres</span> </h1>
+    
+    <div class="row ">
+        <div class="imgWrapper">
+            <img src="{%static 'img/home/oe1.jpg'%}" alt="">
+        </div>
+        <div class="contentWrapper">
+            <div class="content">
+                <span class="textWrapper">
+                    <span></span>Oeuvres
+                </span>
+                <h2>Gnawa</h2>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil id reiciendis quo recusandae? Sapiente rem omnis, nam consequuntur dignissimos libero maiores, voluptates quod accusamus doloribus fuga ducimus quibusdam tenetur placeat ratione quidem soluta laboriosam animi in repellat qui mollitia atque.</p>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="imgWrapper">
+            <img src="{%static 'img/home/oe2.jpg'%}" alt="">
+        </div>
+        <div class="contentWrapper">
+            <div class="content">
+                <span class="textWrapper">
+                    <span></span>Oeuvres
+                </span>
+                <h2>Zelige</h2>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil id reiciendis quo recusandae? Sapiente rem omnis, nam consequuntur dignissimos libero maiores, voluptates quod accusamus doloribus fuga ducimus quibusdam tenetur placeat ratione quidem soluta laboriosam animi in repellat qui mollitia atque.</p>
+            </div>
+        </div>
+    </div>
+    
+    <div class="row ">
+        <div class="imgWrapper">
+            <img src="{%static 'img/home/oe3.jpg'%}" alt="">
+        </div>
+        <div class="contentWrapper">
+            <div class="content">
+                <span class="textWrapper">
+                    <span></span>Oeuvres
+                </span>
+                <h2>Bab</h2>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil id reiciendis quo recusandae? Sapiente rem omnis, nam consequuntur dignissimos libero maiores, voluptates quod accusamus doloribus fuga ducimus quibusdam tenetur placeat ratione quidem soluta laboriosam animi in repellat qui mollitia atque.</p>
+            </div>
+        </div>
+    </div>
+    
+    <div class="row">
+        <div class="imgWrapper">
+            <img src="{%static 'img/jm.jpg'%}" alt="">
+        </div>
+        <div class="contentWrapper">
+            <div class="content">
+                <span class="textWrapper">
+                    <span></span>Oeuvres
+                </span>
+                <h2>Ryad</h2>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil id reiciendis quo recusandae? Sapiente rem omnis, nam consequuntur dignissimos libero maiores, voluptates quod accusamus doloribus fuga ducimus quibusdam tenetur placeat ratione quidem soluta laboriosam animi in repellat qui mollitia atque.</p>
+            </div>
+        </div>
+    </div>
+    
+    </section>
+    
+    
+    <!-- visit section starts  -->
+    
+    <section class="visit" id="visit">
+    
+    <h1 class="heading"> <span>Réserver visite</span> </h1>
+    
+    <div class="row">
+    
+        <div class="content">
+    
+            <h3 class="title">Infos</h3>
+    
+            <div class="info">
+                <h3> <i class="fa fa-mail"></i> ////@gmail.com </h3>
+                <h3> <i class="fas fa-map-marker-alt"></i> Dar Jamai Museum، Place el-Hedime, Meknes </h3>
+            </div>
+    
+        </div>
+    
+        <form action="">
+          {% comment %} <input type="text" placeholder="Nom" class="box">        
+          <input type="text" placeholder="Prénom" class="box">
+          <input type="email" placeholder="email" class="box"> {% endcomment %}
+          
+          <input type="text" placeholder="Numéro carte" class="box">
+          <br>
+          <select class="box" name="type" id="type">
+            <option value="Etudiant" >Public</option>
+            <option value="Etudiant">Etudiant</option>
+            <option value="Eleve">Eleve</option>
+            <option value="Etudiant">Comité d'entreprise</option>
+            <option value="Etudiant">Etudiant d'art</option>
+          </select>
+          <input type="text" id="datepicker">
+          <br>
+          <button type="submit" class="btn"> Réserver<i class="fas fa-paper-plane"></i> </button>
+      </form>
+    
+    </div>
+    
+    </section>
+    </body>
   <script>
     $(document).ready(function(){
-        var unavailableDates = {{ formatted_dates|safe }};
-        var twoWeeksFromNow = new Date();
-        twoWeeksFromNow.setDate(twoWeeksFromNow.getDate() + 14);
-        $( "#datepicker" ).datepicker({
-          minDate: 0,
-          maxDate: "+14D",
-          beforeShowDay: function(date){
-            var string = jQuery.datepicker.formatDate('yy-mm-dd', date);
-            return [ unavailableDates.indexOf(string) == -1 ]
-          }
-        });
+    var unavailableDates = JSON.parse('{{ formatted_dates|escapejs }}');
+    var twoWeeksFromNow = new Date();
+    twoWeeksFromNow.setDate(twoWeeksFromNow.getDate() + 14);
+    $( "#datepicker" ).datepicker({
+      minDate: 0,
+      maxDate: "+14D",
+      beforeShowDay: function(date){
+        var string = jQuery.datepicker.formatDate('yy-mm-dd', date);
+        return [ unavailableDates.indexOf(string) == -1 ]
+      }
     });
+});
   </script>
+  <!-- scroll top button  -->
+
+<a href="#home" class="top">
+  <img src="images/scroll-top-img.png" alt="">
+</a>
+
+
+<script src="{%static 'js/panel.js'%}"></script>
 </html>

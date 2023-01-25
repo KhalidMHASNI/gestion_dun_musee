@@ -12,18 +12,18 @@
 
     <!-- custom css file link  -->
     <link rel="stylesheet" href="{%static 'css/panel.css'%}">
-
+      <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+      <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+      <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 </head>
+
+
 <body>
-    
-<!-- header section starts  -->
-
 <header>
-
     <div class="user">
-        <img src="{%static 'img/home/darJ.png'%}" alt="">
+        <img src="{%static  abonnee_data.10 %}" alt="">
         <!-- <span class="fa-solid fa-user"></span> -->
-        <h3 class="name">Nom & Prenom</h3>
+        <h3 class="name">{{ abonnee_data.1 }} {{ abonnee_data.2 }}</h3>
         <p class="post">Abonné à Dar-J</p>
     </div>
 
@@ -49,7 +49,7 @@
 <section class="home" id="welcome">
 
     <h3>HI THERE !</h3>
-    <h1>Bonjour <span>Nom & Prénom</span></h1>
+    <h1>Bonjour <span>{{ abonnee_data.1 }} {{ abonnee_data.2 }}</span></h1>
     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio deserunt aspernatur fugiat minus enim ullam repudiandae sint sed magnam tenetur! Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus, at.
     </p>
     <a href="/"><button class="btn">Se déconnecter<i class="fas fa-lock"></i></button></a>
@@ -383,28 +383,45 @@
     </div>
 
     <form action="">
-
-        {% comment %} <input type="text" placeholder="Nom" class="box">        
-        <input type="text" placeholder="Prénom" class="box">
-        <input type="email" placeholder="email" class="box"> {% endcomment %}
-        <input type="text" placeholder="Numéro carte" class="box">
-        <select class="box" name="type" id="type">
-            <option value="Etudiant" >Public</option>
-            <option value="Etudiant">Etudiant</option>
-            <option value="Eleve">Eleve</option>
-            <option value="Etudiant">Comité d'entreprise</option>
-            <option value="Etudiant">Etudiant d'art</option>
-          </select>
-        <input type="Date" placeholder="Numéro carte" class="box">
-        <button type="submit" class="btn"> Réserver<i class="fas fa-paper-plane"></i> </button>
-
-    </form>
+      {% comment %} <input type="text" placeholder="Nom" class="box">        
+      <input type="text" placeholder="Prénom" class="box">
+      <input type="email" placeholder="email" class="box"> {% endcomment %}
+      
+      <input type="text" placeholder="Numéro carte" class="box">
+      <br>
+      <select class="box" name="type" id="type">
+        <option value="Etudiant" >Public</option>
+        <option value="Etudiant">Etudiant</option>
+        <option value="Eleve">Eleve</option>
+        <option value="Etudiant">Comité d'entreprise</option>
+        <option value="Etudiant">Etudiant d'art</option>
+      </select>
+      
+      <input type="text" id="datepicker" class="datepicker" placeholder="Date Réservable">
+      <br>
+      <button type="submit" class="btn"> Réserver<i class="fas fa-paper-plane"></i> </button>
+  </form>
 
 </div>
 
 </section>
-
-
+<input type="text" id="datepicker" placeholder="Date Réservable">
+</body>
+<script>
+  $(document).ready(function(){
+  var unavailableDates = JSON.parse('{{ formatted_dates|escapejs }}');
+  var twoWeeksFromNow = new Date();
+  twoWeeksFromNow.setDate(twoWeeksFromNow.getDate() + 14);
+  $( "#datepicker" ).datepicker({
+    minDate: 0,
+    maxDate: "+14D",
+    beforeShowDay: function(date){
+      var string = jQuery.datepicker.formatDate('yy-mm-dd', date);
+      return [ unavailableDates.indexOf(string) == -1 ]
+    }
+  });
+});
+</script>
 
 <!-- scroll top button  -->
 
@@ -413,11 +430,8 @@
 </a>
 
 <!-- jquery cdn link  -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script> -->
 
 <!-- custom js file link  -->
 <script src="{%static 'js/panel.js'%}"></script>
-
-
-</body>
 </html>

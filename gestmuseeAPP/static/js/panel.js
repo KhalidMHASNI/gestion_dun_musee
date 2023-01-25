@@ -36,3 +36,17 @@ $(document).ready(function(){
     });
   
   });
+  
+$(document).ready(function(){
+    var unavailableDates = JSON.parse('{{ formatted_dates|escapejs }}');
+    var twoWeeksFromNow = new Date();
+    twoWeeksFromNow.setDate(twoWeeksFromNow.getDate() + 14);
+    $( "#datepicker" ).datepicker({
+      minDate: 0,
+      maxDate: "+14D",
+      beforeShowDay: function(date){
+        var string = jQuery.datepicker.formatDate('yy-mm-dd', date);
+        return [ unavailableDates.indexOf(string) == -1 ]
+      }
+    });
+});
