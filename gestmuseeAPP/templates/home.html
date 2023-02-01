@@ -69,24 +69,12 @@
         </div>
         <div class="col-2">
             <div class="img-slider">
-                <div class="slide active ">
-                      <img src="{% static 'img/home/oe1.jpg'%}" >
+              {% for oeuvres in oeuvre.all %}
+                    <div class="slide active">
+                      <img src="{{ oeuvres.image.url }}" >
                     </div>
-                    <div class="slide">
-                      <img src="{% static 'img/home/oe2.jpg'%}" >
-                    </div>
-                    <div class="slide">
-                      <img src="{% static 'img/home/oe3.jpg'%}" >                      
-                    </div>
-                    <div class="slide">
-                      <img src="{% static 'img/home/1.jpg'%}" >
-                      </div>
-                      <div class="slide">
-                        <img src="{% static 'img/home/2.jpg'%}" >
-                      </div>
-                    
-                </div>
-                
+                {% endfor %}
+                </div> 
         </div>
     </div>
 

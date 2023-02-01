@@ -101,13 +101,7 @@ class CalendrierMusee(models.Model):
 
 class Reservation(models.Model):
     abonnee = models.ForeignKey(Abonnee, on_delete=models.CASCADE)
-    date = models.ForeignKey(CalendrierMusee, on_delete=models.CASCADE)
+    date = models.DateField()
     type_of_reservation = models.CharField(max_length=255)
 
-    def save(self, *args, **kwargs):
-        if not self.reason:
-            self.reason = None
-        if not self.type_of_reservation:
-            self.type_of_reservation = None
-        super().save(*args, **kwargs)
 

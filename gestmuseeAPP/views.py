@@ -17,6 +17,7 @@ from django.template.loader import get_template
 from datetime import date, datetime,timedelta
 from dateutil.relativedelta import relativedelta
 import json
+from .models import Oeuvre
 
 from .forms import ReservationForm
 from django.contrib.auth import login,authenticate
@@ -24,13 +25,18 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import login
 from django.shortcuts import render, redirect
 
+def calendar(request):
+	return render(request,'calendrier.html')
 
 # Create your views here.
+
 def home(request):
-	return render(request,'home.html')
+	oeuvre = Oeuvre.objects
+	return render(request,'home.html',{'oeuvre': oeuvre})
 
 def oeuvres(request):
-	return render(request,'oeuvres.html')
+	oeuvre = Oeuvre.objects
+	return render(request,'oeuvres.html',{'oeuvre': oeuvre})
 
 def calendrier(request):
 	return render(request,'calendar.html')
@@ -102,7 +108,7 @@ def some_view(request):
 		abonnee_data = cursor.fetchone()
 		x = abonnee_data[10]
 		abonnee_data = abonnee_data[:10] + (str(x).replace('gestmuseeAPP/static/', ''),) + abonnee_data[11:]
-		print("aduzhduzh ",abonnee_data[10])
+		#print("aduzhduzh ",abonnee_data[10])
 	unavailable_dates = CalendrierMusee.next_two_weeks_dates()
 	formatted_dates = []
 	for date in unavailable_dates:
@@ -120,25 +126,50 @@ def some_view(request):
 # type_abonnement = abonnee_data[3]
 
 def panel(request):
-	print(request.user.id)
+	# print(request.user.id)
 	with connection.cursor() as cursor:
-		# %s;",[request.user.id]
-		cursor.execute("SELECT id, prenom, nom, email, type_abonnement, type_abonnee, date_start, date_end, numero_credit_carte, password, image, last_login FROM public.\"gestmuseeAPP_abonnee\" where id = 2;")
+		cursor.execute("SELECT id, prenom, nom, email, type_abonnement, type_abonnee, date_start, date_end, numero_credit_carte, password, image, last_login FROM public.\"gestmuseeAPP_abonnee\" where id = %s;",[request.user.id])
 		abonnee_data = cursor.fetchone()
 		x = abonnee_data[10]
 		abonnee_data = abonnee_data[:10] + (str(x).replace('gestmuseeAPP/static/', ''),) + abonnee_data[11:]
-		print("aduzhduzh ",abonnee_data[10])
+		# print("aduzhduzh ",abonnee_data[10])
 	unavailable_dates = CalendrierMusee.next_two_weeks_dates()
 	formatted_dates = []
 	for date in unavailable_dates:
 		formatted_date = date.strftime("%Y-%m-%d")
 		formatted_dates.append(formatted_date)
+	oeuvre = Oeuvre.objects
 	context = {
+			'oeuvre': oeuvre,
             'abonnee_data': abonnee_data,
             'formatted_dates': json.dumps(formatted_dates)
         }
+
 	return render(request,'panel.html', context)
 
 def logout(request):
 	auth.logout(request)
 	return redirect('home')
+
+def reserver(request):
+    if request.method == 'POST':
+        abonnee = Abonnee.objects.get(email=request.user.email)
+        reservation_type = request.POST.get('type')
+        reservation_date_str = request.POST.get('datepicker')
+		
+        reservation_date = datetime.strptime(reservation_date_str, '%d/%m/%Y')
+
+        
+        print("abonnee: ", abonnee.email)
+        print("reservation_type: ", reservation_type)
+        print("reservation_date: ", reservation_date)
+		
+        Reservation.objects.create(
+             abonnee=abonnee, 
+             date=reservation_date,
+             type_of_reservation=reservation_type
+        )
+        messages.success(request, "Your reservation has been successfully created.")
+        return redirect('panel')
+    else:
+        return render(request, 'panel.html')

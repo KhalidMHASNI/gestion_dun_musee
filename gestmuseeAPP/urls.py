@@ -17,4 +17,6 @@ urlpatterns = [
     path('login/', views.login, name='login'),
     path('make_reservation/', views.some_view, name='make_reservation'),
     path('panel/logout',views.logout, name="logout"),
+    path('calendrier/',views.calendar, name='calendar'),
+    path('panel/reserver',views.reserver, name='reserver'),
 ]
