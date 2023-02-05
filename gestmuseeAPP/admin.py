@@ -13,6 +13,7 @@ class ScheduleInline(admin.TabularInline):
     form = ScheduleForm
     extra = 7
     max_num = 7
+    
 class PersonelAdmin(admin.ModelAdmin):
     inlines = [ScheduleInline]
     list_display = ('nom','prenom')

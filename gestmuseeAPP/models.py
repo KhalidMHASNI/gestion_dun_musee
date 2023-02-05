@@ -1,6 +1,8 @@
 from datetime import timedelta, timezone,datetime
 from django.db import models
 from django.contrib.auth.models import AbstractBaseUser, BaseUserManager
+from datetime import datetime
+
 
 
 class Abonnee(models.Model):
@@ -84,7 +86,8 @@ class Schedule(models.Model):
     personel = models.ForeignKey(Personel, on_delete=models.CASCADE)
     start_time = models.TimeField()
     end_time = models.TimeField()
-    date = models.DateField()
+    date = models.CharField(max_length=12)
+
 
 class CalendrierMusee(models.Model):
     date = models.DateField()
@@ -103,5 +106,18 @@ class Reservation(models.Model):
     abonnee = models.ForeignKey(Abonnee, on_delete=models.CASCADE)
     date = models.DateField()
     type_of_reservation = models.CharField(max_length=255)
+    personel = models.ForeignKey(Personel, on_delete=models.SET_NULL, null=True, blank=True)
+
+    def save(self, *args, **kwargs):
+        if self.type_of_reservation == 'Guided':
+            personel = Personel.objects.filter(available=True).first()
+            if not personel:
+                raise ValidationError("No available personel found for this date.")
+            else:
+                personel.available = False
+                personel.save()
+                self.personel = personel
+        super().save(*args, **kwargs)
+
 
 

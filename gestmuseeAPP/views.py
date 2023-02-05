@@ -151,25 +151,53 @@ def logout(request):
 	auth.logout(request)
 	return redirect('home')
 
+# def reserver(request):
+#     if request.method == 'POST':
+#         abonnee = Abonnee.objects.get(email=request.user.email)
+#         guided = request.POST.get('type')
+#         reservation_date_str = request.POST.get('datepicker')
+		
+#         reservation_date = datetime.strptime(reservation_date_str, '%d/%m/%Y')
+
+        
+#         print("abonnee: ", abonnee.email)
+#         print("reservation_type: ", reservation_type)
+#         print("reservation_date: ", reservation_date)
+		
+#         Reservation.objects.create(
+#              abonnee=abonnee, 
+#              date=reservation_date,
+#              type_of_reservation=reservation_type
+#         )
+#         messages.success(request, "Your reservation has been successfully created.")
+#         return redirect('panel')
+#     else:
+#         return render(request, 'panel.html')
+
 def reserver(request):
     if request.method == 'POST':
         abonnee = Abonnee.objects.get(email=request.user.email)
-        reservation_type = request.POST.get('type')
+        guided = request.POST.get('radio')
         reservation_date_str = request.POST.get('datepicker')
-		
+        
         reservation_date = datetime.strptime(reservation_date_str, '%d/%m/%Y')
-
         
         print("abonnee: ", abonnee.email)
-        print("reservation_type: ", reservation_type)
+        print("guided: ", guided)
         print("reservation_date: ", reservation_date)
-		
-        Reservation.objects.create(
-             abonnee=abonnee, 
-             date=reservation_date,
-             type_of_reservation=reservation_type
-        )
+        
+        reservation_type = 'Guided' if guided == 'Guidé' else 'Not Guided'
+        
+        # Reservation.objects.create(
+        #      abonnee=abonnee, 
+        #      date=reservation_date,
+        #      type_of_reservation=reservation_type
+        # )
         messages.success(request, "Your reservation has been successfully created.")
         return redirect('panel')
     else:
         return render(request, 'panel.html')
+
+
+def nice(request):
+	print('test')

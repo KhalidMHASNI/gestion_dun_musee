@@ -5,13 +5,13 @@ from gestmuseeAPP.models import CalendrierMusee, Reservation, Schedule
 
 class ScheduleForm(forms.ModelForm):
     DAYS_OF_WEEK = (
-        ('Lundi', 'Lundi'),
-        ('Mardi', 'Mardi'),
-        ('Mercredi', 'Mercredi'),
-        ('Jeudi', 'Jeudi'),
-        ('Vendredi', 'Vendredi'),
-        #('Samedi', 'Samedi'),
-        ('Dimanche', 'Dimanche'),
+        ('Monday', 'Lundi'),
+        ('Tuesday', 'Mardi'),
+        ('Wednesday', 'Mercredi'),
+        ('Thursday', 'Jeudi'),
+        ('Friday', 'Vendredi'),
+        #('Saturday', 'Samedi'),
+        ('Sunday', 'Dimanche'),
     )
 
     day = forms.ChoiceField(choices=DAYS_OF_WEEK)
@@ -22,10 +22,15 @@ class ScheduleForm(forms.ModelForm):
 
     def clean_day(self):
         day = self.cleaned_data['day']
-        date = datetime.datetime.now().date()
-        while date.strftime("%A") != day:
-            date += datetime.timedelta(days=1)
-        return date
+        today = date.today()
+        days_to_add = 0
+        while today.strftime("%A") != day:
+            today += timedelta(days=1)
+            days_to_add += 1
+            if days_to_add > 365:
+                raise forms.ValidationError(today.strftime("%A"))
+        return today
+
 
 class ReservationForm(forms.ModelForm):
     class Meta:

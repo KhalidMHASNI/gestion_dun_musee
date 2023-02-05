@@ -1519,3 +1519,122 @@ ul{
 
 
 
+
+/* /////////////////////////////////////
+/////////////////Conférence
+/////////////////////////////////////// */
+
+.appah3{
+    width: 100%;
+    height: auto;
+    padding: 0 8%;
+    justify-content: space-between;
+
+}
+
+.appah3 .row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    grid-gap: 30px;
+}
+
+/* #Conférences {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 400px;
+    border: 3px solid rgba(0, 0, 0, 0.00);
+} */
+
+
+.appah3 h1 {
+    text-align: center;
+    padding-top: 10%;
+    margin-top: -1rem;
+    text-transform: uppercase;
+    font-weight: 600;
+    position: relative;
+    color: var(--bgColor-2);
+}
+
+.appah3 h1::after{
+    content: '';
+    background: var(--bgColor-2);
+    width: 200px;
+    height: 5px;
+    position: absolute;
+    bottom: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+
+}
+
+.conf-box{
+    text-align: center;
+    padding: 25px 10px;
+    border-radius: 5px;
+    font-size: 14px;
+    cursor: pointer;
+    background: transparent;
+    transition:  transform 0.5s, background 0.5s;
+    box-shadow: 0 10px 20px -8px #bfbfbf ;
+}
+
+.conf-img {
+    width: 100%;
+    height: auto;
+}
+
+.conf-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    
+}
+
+.conf-text {
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+}
+
+.conf-text span {
+    color: var(--bgColor-1);
+    font-size: 0.9rem;
+}
+
+.conf-text .conf-title {
+    font-size: 1.3rem;
+    font-weight: 500;
+    color: black;
+
+}
+
+.conf-text .conf-title:hover{
+    color: var(--bgColor-2);
+    transition: all ease-in-out 0.3s;
+}
+
+.conf-text p {
+    color: #bfbfbf;
+    font-size: 0.9rem;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin: 20px 0px;
+
+
+}
+
+.conf-text a {
+    color: black;
+    text-decoration: none;
+}
+
+.conf-text a:hover{
+    color: var(--bgColor-2);
+}

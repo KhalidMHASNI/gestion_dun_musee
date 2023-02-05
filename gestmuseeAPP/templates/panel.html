@@ -383,29 +383,19 @@
 
     <form action="reserver" method="post">
       {% csrf_token %}
-      {% comment %} <input type="text" placeholder="Nom" class="box">        
-      <input type="text" placeholder="Prénom" class="box">
-      <input type="email" placeholder="email" class="box"> {% endcomment %}
-      
-      <!-- <select class="box" name="type" id="type">
-        <option value="Etudiant" >Public</option>
-        <option value="Etudiant">Etudiant</option>
-        <option value="Eleve">Eleve</option>
-        <option value="Etudiant">Comité d'entreprise</option>
-        <option value="Etudiant">Etudiant d'art</option>
-      </select> -->
-      
       <fieldset>
         <h3 class="typevisite">visite est-elle guidé ?</h3>
-        <div>
-          <input type="radio" id="huey" name="drone" value="huey" class="typeques" checked>
-          <label for="huey">Guidé</label>
-        </div>
-    
-        <div>
-          <input type="radio" id="dewey" name="drone" value="dewey" class="typeques">
-          <label for="dewey">non Guidé</label>
-        </div>
+        <br>
+        <div class="containerGuide">
+          <label class="labelGuide">
+            <input type="radio" name="radio" id="radioB" checked/>
+            <span>Non Guidé</span>
+          </label>
+          <label class="labelGuide">
+            <input type="radio" name="radio" id="radioB"/>
+            <span>Guidé</span>
+          </label>
+      </div>
     
         <br>
       <input type="text" id="datepicker" name="datepicker" class="datepicker" placeholder="Date Réservable" autocomplete="off">
