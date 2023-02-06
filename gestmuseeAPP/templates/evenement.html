@@ -1,0 +1,48 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <script src="https://kit.fontawesome.com/64d58efce2.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="{%static 'css/evenement.css'%}">
+    <link href="https://fonts.googleapis.com/css?family=Josefin+Sans" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer"/>
+    <link rel="icon" type="image/png" href="{%static 'img/darJ.png'%}"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GestMusee-Evénement</title>
+</head>
+
+<body>
+    <header>
+        <nav><img src="{%static 'img/home/darJ.png'%}">
+            <ul id="action" style="margin-left:42%">
+                <li><a href="home" class="hover-underline-animation">Acceuil</a></li>
+            </ul>
+          </nav>
+    </header>
+    {% for event in event.all %}
+    <div class="row ">
+        <div class="imgWrapper">
+            <img src="{{ event.image.url }}" alt="">
+        </div>
+        <div class="contentWrapper">
+            <div class="content">
+                <span class="textWrapper">
+                    <span></span>05/02/2023,Salle 11
+                </span>
+                <h2>{{ event.titre }}</h2>
+                <p>{{ event.notes }}</p>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+
+    <a class="gotopbtn" href="#"> <em class="fas fa-arrow-up"></em> </a>
+
+  <script src="{%static 'js/oeuvres.js'%}" ></script>
+
+
+</body>
+
+</html>

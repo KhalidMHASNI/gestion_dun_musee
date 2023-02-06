@@ -772,3 +772,116 @@ div#ui-datepicker-div{
     box-shadow: inset 0 0 0 0.125em #D93D04;
   }
   
+  .param  .row{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.param  .row .content{
+    flex:1 1 30rem;
+    padding:4rem;
+    padding-bottom: 0;
+}
+
+.param  .row form{
+    flex:1 1 45rem;
+    padding:2rem;
+    margin-left: 1rem;
+    /* margin-top: -10%; */
+}
+
+.param  .row form button{
+    padding: 1rem;
+    margin:1.5rem 0;
+    display: block;
+    font-size: 1rem;
+    text-decoration: none;
+    font-weight: 500;
+    color: #111;
+    letter-spacing: 2px;
+    border: solid;
+    border-width: 0px 5px 0px 0px;
+    border-color: var(--bgColor-1);
+    transition: 0.2s;
+    
+}
+
+.param  .row form button:hover{
+    color: #fff;
+    background-color: #000;
+    letter-spacing: 2px;
+    border: solid;
+    border-width: 0px 0px 0px 5px;
+    border-color: var(--bgColor-1);
+    transition: 0.2s;
+    
+}
+
+/* .param  .row form .box{
+    padding:0.7rem;
+    margin:1rem 0;
+    background:#3333;
+    color:#1c1c1c;
+    text-transform: none;
+    font-size: 1.8rem;
+    width:48%;
+    display: inline-block;
+}
+
+.param  .row form .box::placeholder{
+    text-transform: capitalize;
+}
+
+.param .row form .box:focus{
+    width: 50%;
+    background-color: #777;
+    color: #fff;
+}
+ */
+.param .row form h2 {
+    color: var(--bgColor-2);
+    margin-top: -5rem;
+}
+
+
+/* //////////////////////
+/////////////////////////
+.§§§§§§§§§§§§§§§§§§§§§§§§ */
+
+.param .row  .user-box {
+  position: relative;
+  display: inline-block;
+}
+
+.param .row .user-box input {
+  width: 80%;
+  padding-top: 30px;
+  font-size: 16px;
+  color: #111;
+  /* margin-bottom: 30px; */
+  border: none;
+  border-bottom: 2px solid #111;
+  outline: none;
+  background: transparent;
+  display: inline-block;
+}
+.param .row .user-box label {
+  position: absolute;
+  top:0;
+  left: 0;
+  padding: 25px 0;
+  font-size: 16px;
+  color: var(--bgColor-1);
+  pointer-events: none;
+  transition: .3s;
+}
+
+.param .row .user-box input:focus ~ label,
+.param .row  .user-box input:valid ~ label {
+  top: -10px;
+  left: 0;
+  color: #000;
+  font-size: 12px;
+}

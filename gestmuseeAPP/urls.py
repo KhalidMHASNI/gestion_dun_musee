@@ -19,4 +19,5 @@ urlpatterns = [
     path('panel/logout',views.logout, name="logout"),
     path('calendrier/',views.calendar, name='calendar'),
     path('panel/reserver',views.reserver, name='reserver'),
+    path('evenement/',views.evenement, name='evenement'),
 ]

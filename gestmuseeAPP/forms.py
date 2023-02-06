@@ -2,6 +2,7 @@ from datetime import datetime, timedelta,date
 from django.utils import timezone
 from django import forms
 from gestmuseeAPP.models import CalendrierMusee, Reservation, Schedule
+import pytz
 
 class ScheduleForm(forms.ModelForm):
     DAYS_OF_WEEK = (
@@ -22,17 +23,22 @@ class ScheduleForm(forms.ModelForm):
 
     def clean_day(self):
         day = self.cleaned_data['day']
-        today = date.today()
-        days_to_add = 0
-        while today.strftime("%A") != day:
-            today += timedelta(days=1)
-            days_to_add += 1
-            if days_to_add > 365:
-                raise forms.ValidationError(today.strftime("%A"))
-        return today
+        return day
 
+    def save(self, commit=True):
+        schedule = super().save(commit=False)
+        day = self.cleaned_data['day']
+
+
+        schedule.date = day
+
+        if commit:
+            schedule.save()
+
+        return schedule
 
 class ReservationForm(forms.ModelForm):
+    
     class Meta:
         model = Reservation
         fields = ['abonnee', 'date']

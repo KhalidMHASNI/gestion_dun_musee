@@ -2,7 +2,7 @@ from datetime import timedelta, timezone,datetime
 from django.db import models
 from django.contrib.auth.models import AbstractBaseUser, BaseUserManager
 from datetime import datetime
-
+from django.db import connection
 
 
 class Abonnee(models.Model):
@@ -76,10 +76,13 @@ class Personel(models.Model):
     is_available = models.BooleanField(default=True)
 
     def check_availability(self, date):
-        schedule = Schedule.objects.filter(personel=self, date=date)
-        if schedule.exists():
-            return False
-        return True
+        with connection.cursor() as cursor:
+            cursor.execute("SELECT personel_id FROM public.\"gestmuseeAPP_schedule\" where date = '%s';" % date)
+            perso_data = cursor.fetchall()
+            if perso_data:
+                return [personel[0] for personel in perso_data]
+            return []
+
 
 
 class Schedule(models.Model):
@@ -118,6 +121,9 @@ class Reservation(models.Model):
                 personel.save()
                 self.personel = personel
         super().save(*args, **kwargs)
+        
+    def is_guided(self):
+        return self.type_of_reservation == 'Guided'
 
 
 

@@ -32,9 +32,9 @@
             <li><a href="#welcome">Paramètre du Profile</a></li>
             <li><a href="#musee">À prpos du musée</a></li>
             <li><a href="#calendar">Calendrier</a></li>
-            <!-- <li><a href="#education">education</a></li> -->
             <li><a href="#oeuvres">Oeuvres</a></li>
             <li><a href="#visit">Réserver visite</a></li>
+            <li><a href="#param">Paramètres</a></li>
         </ul>
     </nav>
 
@@ -93,6 +93,7 @@
     <h3>HI THERE !</h3>
     <h1>Bonjour <span>{{ abonnee_data.1 }} {{ abonnee_data.2 }}</span></h1>
     <p>Nous sommes ravis de vous accueillir au musée! Nous espérons que votre expérience d'exploration sera inoubliable et remplie de découvertes passionnantes. Que ce soit pour une visite en groupe ou pour un moment de solitude, notre musée est là pour vous faire vivre des moments inoubliables. </p>
+    <h3>Expiration d'abonnement en : <span style="color:green;">{{ abonnee_data.12 }} jours</span> </h3>
     <a href="logout"><button class="btn">Se déconnecter<i class="fas fa-lock"></i></button></a>
 
 </section>
@@ -405,6 +406,92 @@
 
 </div>
 
+</section>
+
+<section class="param" id="param">
+  <h1 class="heading"> <span>Paramètres</span> </h1>
+
+  <div class="row">
+      <form action="">
+        <h2>Modifier Nom & Prénom </h2>
+        <!-- <input type="text" placeholder="Nom" class="box">    -->
+        <div class="user-box">
+          <input type="text" name="" required="">
+          <label>Nom</label>
+        </div>     
+        <!-- <input type="text" placeholder="New Nom" class="box">  -->
+        <div class="user-box">
+          <input type="text" name="" required="">
+          <label>New Nom</label>
+        </div>  
+        <!-- <input type="text" placeholder="Prénom" class="box">    -->
+        <div class="user-box">
+          <input type="text" name="" required="">
+          <label>Prénom</label>
+        </div>          
+        <!-- <input type="text" placeholder="New Prénom" class="box"> -->
+        <div class="user-box">
+          <input type="text" name="" required="">
+          <label>New Prénom</label>
+        </div>
+        <button type="submit" > Modifier Nom & Prénom<i class="fas fa-paper-plane"></i> </button>
+
+
+
+        <!-- <input type="password" placeholder="mdp" class="box">
+        <input type="password" placeholder="New mdp" class="box">
+        <input type="password" placeholder="confirmer" class="box"> -->        
+
+  
+    </form> 
+    <form action="">
+
+      <h2>Modifier Carte de crédit </h2>
+      <!-- <input type="text" placeholder="Numéro carte" class="box"> -->
+      <div class="user-box">
+        <input type="text" name="" required="">
+        <label>Numéro carte</label>
+      </div>
+      <!-- <input type="text" placeholder="New Numéro carte" class="box"> -->
+      <div class="user-box">
+        <input type="text" name="" required="">
+        <label>New Numéro carte</label>
+      </div>
+      <button type="submit" > Modifier Numéro carte<i class="fas fa-paper-plane"></i> </button>
+
+
+    </form>
+
+    <form action="">
+      <h2>Modifier Mot de passe </h2>
+      <div class="user-box">
+        <input type="password" name="" required="">
+        <label>mdp</label>
+      </div>
+      <div class="user-box">
+        <input type="password" name="" required="">
+        <label>New mdp</label>
+      </div>
+      <div class="user-box">
+        <input type="password" name="" required="">
+        <label>confirmer</label>
+      </div>
+      <button type="submit"> Modifier Mot de passe <i class="fas fa-paper-plane"></i> </button>
+
+      
+    </form>
+
+    <form action="">
+      <h2>Ajouter image </h2>
+      <input type="file" id="myfile" name="myfile" class="box">
+      <button type="submit"> Modifier image <i class="fas fa-paper-plane"></i> </button>
+    </form>
+
+</div>
+
+
+
+  
 </section>
 </body>
 <script>
