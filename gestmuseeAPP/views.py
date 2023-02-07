@@ -1,3 +1,4 @@
+from django.core.files.storage import FileSystemStorage
 from django.shortcuts import render
 import random
 from django.shortcuts import redirect, render
@@ -34,7 +35,22 @@ def calendar(request):
 
 def home(request):
     oeuvre = Oeuvre.objects
-    return render(request, 'home.html', {'oeuvre': oeuvre})
+    conf = Conference.objects.all().order_by('-id')[:1]
+    manif = Manifestation.objects.all().order_by('-id')[:2]
+
+    # Get the salle names for each conference
+    conf_salle_names = []
+    for conference in conf:
+        salle = Salle.objects.get(id=conference.salle_id)
+        conf_salle_names.append(salle.nom)
+
+    context = {
+        'conf': conf,
+        'conf_salle_names': conf_salle_names,
+        'manif': manif,
+        'oeuvre': oeuvre,
+    }
+    return render(request, 'home.html', context)
 
 
 def oeuvres(request):
@@ -155,6 +171,7 @@ def panel(request):
         formatted_date = date.strftime("%Y-%m-%d")
         formatted_dates.append(formatted_date)
 
+    print(formatted_dates)
     oeuvre = Oeuvre.objects
     context = {
         'oeuvre': oeuvre,
@@ -173,37 +190,35 @@ def logout(request):
 def reserver(request):
     if request.method == 'POST':
         abonnee = Abonnee.objects.get(email=request.user.email)
-        guide = request.POST.get('radioG')
-        nnguide = request.POST.get('radioNG')
 
-        if guide:
-            guided = True
-        elif nnguide:
+        selected_option = request.POST.get('radio')
+        if selected_option == 'non_guide':
             guided = False
+        else:
+            guided = True
+
         reservation_date_str = request.POST.get('datepicker')
-        print(guided)
+
         reservation_date = datetime.strptime(reservation_date_str, '%m/%d/%Y')
 
         day_name = reservation_date.strftime("%A")
         available_personnel = []
         for personnel in Personel.objects.all():
-            print("TEEST : ",personnel.check_availability(day_name))
+            print("TEEST : ", personnel.check_availability(day_name))
             if personnel.check_availability(day_name):
                 # print()
                 available_personnel.append(personnel)
 
-
         print("abonnee: ", abonnee.email)
         print("guided: ", guided)
-        print("day_name: ", day_name,"available_personnel: ", available_personnel)
-        
+        print("day_name: ", day_name, "available_personnel: ", available_personnel)
 
-        # Reservation.objects.create(
-        #      abonnee=abonnee,
-        #      personel=personnel,
-        #      date=reservation_date,
-        #      type_of_reservation=guided
-        # )
+        Reservation.objects.create(
+             abonnee=abonnee,
+             personel=personnel,
+             date=reservation_date,
+             type_of_reservation=guided
+        )
 
         messages.success(
             request, "Your reservation has been successfully created.")
@@ -213,8 +228,95 @@ def reserver(request):
 
 
 def evenement(request):
+    conf = Conference.objects.all()
+    manif = Manifestation.objects.all()
+
+    # Get the salle names for each conference
+    conf_salle_names = []
+    for conference in conf:
+        salle = Salle.objects.get(id=conference.salle_id)
+        conf_salle_names.append(salle.nom)
+        print(conf_salle_names[0])
+
+    manif_salle_names = []
+    for manifestation in manif:
+        salle = Salle.objects.get(id=manifestation.salle_id)
+        manif_salle_names.append(salle.nom)
+        print(manif_salle_names[0])
+
     context = {
-        'conf': Conference.objects,
-        'manif': Manifestation.objects,
+        'conf': conf,
+        'conf_salle_names': conf_salle_names,
+        'manif': manif,
+        'manif_salle_names': manif_salle_names,
     }
+
     return render(request, 'evenement.html', context)
+
+
+def evt(request):
+    return redirect('home')
+
+
+def sedesabonner(request):
+    # Get the Abonnee instance to delete
+    abonnee = Abonnee.objects.get(email=request.user.email)
+    user = User.objects.get(username=request.user.email)
+
+    # Delete the Abonnee instance
+    abonnee.delete()
+    user.delete()
+    # Redirect the user to a success page
+    return redirect('home')
+
+
+def modify_name_abonnee(request):
+    if request.method == 'POST':
+        old_nom = request.POST.get('old_nom')
+        new_nom = request.POST.get('new_nom')
+        old_prenom = request.POST.get('old_prenom')
+        new_prenom = request.POST.get('new_prenom')
+
+        abonnee = Abonnee.objects.get(nom=old_nom, prenom=old_prenom)
+        abonnee.nom = new_nom
+        abonnee.prenom = new_prenom
+        abonnee.save()
+
+        return redirect('panel')
+
+    return render(request, 'panel.html')
+
+
+def modify_passwd_abonnee(request):
+    if request.method == 'POST':
+        old_pass = request.POST.get('old_pass')
+        new_pass = request.POST.get('new_pass')
+        com_new_pass = request.POST.get('com_new_pass')
+        if (new_pass == old_pass):
+            abonnee = Abonnee.objects.get(password=old_pass)
+            abonnee.password = new_pass
+            abonnee.save()
+        else:
+            print("Error")
+
+        return redirect('panel')
+
+    return render(request, 'panel.html')
+
+
+def modify_image_abonnee(request):
+    if request.method == 'POST':
+        new_image = request.FILES.get('new_image')
+        if new_image:
+            fs = FileSystemStorage(
+                location='C:\\Users\kmhas\Documents\GitHub\gestion_dun_musee\gestmuseeAPP\static\img\data\profile')
+            filename = fs.save(new_image.name, new_image)
+            uploaded_file_url = fs.url(filename)
+
+            abonnee = request.user
+            abonnee.image = uploaded_file_url
+            abonnee.save()
+
+            return redirect('panel')
+
+    return render(request, 'panel.html')

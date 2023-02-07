@@ -21,23 +21,42 @@
             </ul>
           </nav>
     </header>
-    {% for event in event.all %}
+    <h1 id="titreE">Conférences Valables : </h1>
+    {% for conf in conf.all %}
     <div class="row ">
         <div class="imgWrapper">
-            <img src="{{ event.image.url }}" alt="">
+            <img src="{{ conf.image.url }}" alt="">
         </div>
         <div class="contentWrapper">
             <div class="content">
                 <span class="textWrapper">
-                    <span></span>05/02/2023,Salle 11
+                    <span></span>{{ conf.date_debut }}, {{ conf_salle_names.0 }}
                 </span>
-                <h2>{{ event.titre }}</h2>
-                <p>{{ event.notes }}</p>
+                <h2>{{ conf.titre }}</h2>
+                <h4>Conférencier : {{ conf.Conferencier }}</h4>
+                <p>{{ conf.notes }}</p>
             </div>
         </div>
     </div>
     {% endfor %}
-
+    <h1 id="titreE">Manifestations Valables : </h1>
+    {% for manif in manif.all %}
+    <div class="row ">
+       
+        <div class="contentWrapper">
+            <div class="content">
+                <span class="textWrapper">
+                    <span></span>{{ manif.date_debut }}, {{ manif_salle_names.0 }}
+                </span>
+                <h2>{{ manif.titre }}</h2>
+                <p>{{ manif.notes }}</p>
+            </div>
+        </div>
+        <div class="imgWrapper">
+            <img src="{{ manif.image.url }}" alt="">
+        </div>
+    </div>
+    {% endfor %}
     <a class="gotopbtn" href="#"> <em class="fas fa-arrow-up"></em> </a>
 
   <script src="{%static 'js/oeuvres.js'%}" ></script>

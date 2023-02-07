@@ -31,3 +31,4 @@ admin.site.register(Conference)
 admin.site.register(Abonnee)
 admin.site.register(CalendrierMusee)
 admin.site.register(Reservation)
+

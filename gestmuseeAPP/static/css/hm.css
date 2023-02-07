@@ -621,6 +621,7 @@ border-width: 0px 8px 0px 0px;
 /******************************************/
 /*****************Tarif
 /******************************************/
+
 .appah1  {
     display: flex;
     width: 100%;
@@ -636,15 +637,30 @@ border-width: 0px 8px 0px 0px;
 }
 .appah1 .col-1 {
     padding: 8% 5%;
+    margin-left: 30%;
     position: relative;
 
 }
 .appah1 .col-1 h1 {
+    text-align: center;
+    padding-top: 10%;
+    margin-top: -1rem;
     text-transform: uppercase;
-    font-size: 60px;
-    line-height: 80px;
-    letter-spacing: 2px;
+    font-weight: 600;
+    position: relative;
     color: white;
+}
+
+.appah1 .col-1 h1::after{
+    content: '';
+    background: var(--footerColor);
+    width: 200px;
+    height: 5px;
+    position: absolute;
+    bottom: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+
 }
 .appah1 a {
     padding: 15px 40px ;
@@ -677,7 +693,7 @@ border-width: 0px 8px 0px 0px;
     align-items: center;
     justify-content: space-around;
     display: flex;
-    margin-left: 5rem;
+    margin-left: 14rem;
     color: var(--bgColor-1);
 }
 
@@ -1538,24 +1554,16 @@ ul{
     grid-gap: 30px;
 }
 
-/* #Conférences {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    padding: 400px;
-    border: 3px solid rgba(0, 0, 0, 0.00);
-} */
-
 
 .appah3 h1 {
     text-align: center;
     padding-top: 10%;
     margin-top: -1rem;
+    margin-bottom: 3rem;
     text-transform: uppercase;
     font-weight: 600;
     position: relative;
-    color: var(--bgColor-2);
+    color: var(--bgColor-1);
 }
 
 .appah3 h1::after{
@@ -1595,20 +1603,28 @@ ul{
 }
 
 .conf-text {
-    padding: 30px;
+    padding: 40px;
     display: flex;
     flex-direction: column;
 }
 
 .conf-text span {
-    color: var(--bgColor-1);
-    font-size: 0.9rem;
+    color: var(--bgColor-2);
+    text-transform: capitalize;
+    font-size: 1.4rem;
+}
+
+.conf-text .p {
+    color: black;
+    text-transform: capitalize;
+    display: inline-grid;
+    font-size: 1.4rem;
 }
 
 .conf-text .conf-title {
-    font-size: 1.3rem;
+    font-size: 1.9rem;
     font-weight: 500;
-    color: black;
+    color: #1c1c1c;
 
 }
 
@@ -1619,13 +1635,13 @@ ul{
 
 .conf-text p {
     color: #bfbfbf;
-    font-size: 0.9rem;
+    font-size: 1.1rem;
     display: -webkit-box;
     -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
     overflow: hidden;
     text-overflow: ellipsis;
-    margin: 20px 0px;
+    margin: 25px 0px;
 
 
 }
@@ -1633,8 +1649,13 @@ ul{
 .conf-text a {
     color: black;
     text-decoration: none;
+    font-size: 1.2rem;
+
 }
 
 .conf-text a:hover{
     color: var(--bgColor-2);
+    letter-spacing: 1px;
+    transition: .2s;
+    font-size: 1.4rem;
 }

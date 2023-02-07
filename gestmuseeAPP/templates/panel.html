@@ -21,7 +21,12 @@
 <body>
 <header>
     <div class="user">
-        <img src="{%static  abonnee_data.10 %}" alt="">
+      <div class="profile-pic-div">
+        <img src="" id="photo">
+        <input type="file" id="file">
+        <label for="file" id="uploadBtn">Choisir Photo</label>
+      </div>
+        <!-- <img src="{%static  abonnee_data.10 %}" alt=""> -->
         <!-- <span class="fa-solid fa-user"></span> -->
         <h3 class="name">{{ abonnee_data.1 }} {{ abonnee_data.2 }}</h3>
         <p class="post">Abonné à Dar-J</p>
@@ -29,12 +34,13 @@
 
     <nav class="navbar">
         <ul>
-            <li><a href="#welcome">Paramètre du Profile</a></li>
+            <li><a href="#welcome">Status</a></li>
             <li><a href="#musee">À prpos du musée</a></li>
-            <li><a href="#calendar">Calendrier</a></li>
             <li><a href="#oeuvres">Oeuvres</a></li>
             <li><a href="#visit">Réserver visite</a></li>
             <li><a href="#param">Paramètres</a></li>
+            <li><a class="fas fa-lock" href="logout">Se deconnecter &nbsp;</a></li>
+
         </ul>
     </nav>
 
@@ -61,7 +67,7 @@
       <script>
           swal({
               title: "Erreur :(",
-              text: "L'email que vous avez entrer est déjà existé. Merci de le changer",
+              text: "L'ancien nom ou prénom est eronné",
               icon: "warning",
               buttons: true,
             });
@@ -94,7 +100,9 @@
     <h1>Bonjour <span>{{ abonnee_data.1 }} {{ abonnee_data.2 }}</span></h1>
     <p>Nous sommes ravis de vous accueillir au musée! Nous espérons que votre expérience d'exploration sera inoubliable et remplie de découvertes passionnantes. Que ce soit pour une visite en groupe ou pour un moment de solitude, notre musée est là pour vous faire vivre des moments inoubliables. </p>
     <h3>Expiration d'abonnement en : <span style="color:green;">{{ abonnee_data.12 }} jours</span> </h3>
-    <a href="logout"><button class="btn">Se déconnecter<i class="fas fa-lock"></i></button></a>
+    <div id="btns">
+      <a href="sedesabonne"><button class="btndes">Se désabonner<i class="fa-solid fa-right-from-bracket"></i></button></a>
+    </div>
 
 </section>
 
@@ -144,197 +152,6 @@
     </div>
 
 </section>
-
-
-
-<!-- Calendar section starts  -->
-
-<section class="calendar" id="calendar">
-
-<h1 class="heading"> <span>Calendrier</span> Dar-J </h1>
-
-<div class="row">
-    {% comment %} <div class="col-1">
-        <h1>Calendrier</h1>
-        <p>Le palais Dar Jamaï fut édifié en 1882 dans la ville de Meknès au Maroc par Mohamed ben Larbi Jamaï.
-            Pour consulter calendrier veuillez cliquer le boutton ci-dessus
-         </p>
-    </div> {% endcomment %}
-    <div class="col-2">
-      <div class="event-container">
-        <h3 class="year">2023</h3>
-  
-        <div class="event">
-          <div class="event-left">
-            <div class="event-date">
-              <div class="date">8</div>
-              <div class="month">Jan</div>
-            </div>
-          </div>
-  
-          <div class="event-right">
-            <h3 class="event-title">Titre</h3>
-            <div class="event-description">
-              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Accusamus,
-              ratione.
-            </div>
-  
-            <div class="event-timing">
-              <!-- <img src="img/home/time.png" alt=""/>--> 10:00 am 
-            </div>
-          </div>
-        </div>
-  
-  
-        <div class="event">
-          <div class="event-left">
-            <div class="event-date">
-              <div class="date">4</div>
-              <div class="month">Apr</div>
-            </div>
-          </div>
-  
-          <div class="event-right">
-            <h3 class="event-title">Titre</h3>
-  
-            <div class="event-description">
-              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Accusamus,
-              ratione.
-            </div>
-  
-            <div class="event-timing">
-              <!-- <img src="img/home/time.png" alt="" />--> 10:00 am 
-            </div>
-          </div>
-        </div>
-  
-        <div class="event">
-          <div class="event-left">
-            <div class="event-date">
-              <div class="date">8</div>
-              <div class="month">Jun</div>
-            </div>
-          </div>
-  
-          <div class="event-right">
-            <h3 class="event-title">Titre</h3>
-  
-            <div class="event-description">
-              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Accusamus,
-              ratione.
-            </div>
-  
-            <div class="event-timing">
-              <!-- <img src="img/home/time.png" alt="" /> -->10:00 am 
-            </div>
-          </div>
-        </div>
-
-        <div class="event">
-            <div class="event-left">
-              <div class="event-date">
-                <div class="date">30</div>
-                <div class="month">Jan</div>
-              </div>
-            </div>
-    
-            <div class="event-right">
-              <h3 class="event-title">Titre</h3>
-    
-              <div class="event-description">
-                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Accusamus,
-                ratione.
-              </div>
-    
-              <div class="event-timing">
-                <!-- <img src="img/home/time.png" alt=""/>--> 10:00 am 
-              </div>
-            </div>
-          </div>
-
-          <div class="event">
-            <div class="event-left">
-              <div class="event-date">
-                <div class="date">1</div>
-                <div class="month">Dec</div>
-              </div>
-            </div>
-    
-            <div class="event-right">
-              <h3 class="event-title">Titre</h3>
-    
-              <div class="event-description">
-                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Accusamus,
-                ratione.
-              </div>
-    
-              <div class="event-timing">
-                <!-- <img src="img/home/time.png" alt=""/>--> 10:00 am 
-              </div>
-            </div>
-          </div>
-
-      </div>
-            
-    </div>
-</div>
-
-</section>
-
-
-<!-- education section starts  -->
-
-<!-- <section class="education" id="education">
-
-<h1 class="heading"> my <span>education</span> </h1>
-
-<div class="box-container">
-
-    <div class="box">
-        <i class="fas fa-graduation-cap"></i>
-        <span>2016</span>
-        <h3>front end development</h3>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati quos alias praesentium. Id autem provident laborum quae, distinctio eaque temporibus!</p>
-    </div>
-
-    <div class="box">
-        <i class="fas fa-graduation-cap"></i>
-        <span>2017</span>
-        <h3>front end development</h3>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati quos alias praesentium. Id autem provident laborum quae, distinctio eaque temporibus!</p>
-    </div>
-
-    <div class="box">
-        <i class="fas fa-graduation-cap"></i>
-        <span>2018</span>
-        <h3>front end development</h3>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati quos alias praesentium. Id autem provident laborum quae, distinctio eaque temporibus!</p>
-    </div>
-
-    <div class="box">
-        <i class="fas fa-graduation-cap"></i>
-        <span>2019</span>
-        <h3>front end development</h3>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati quos alias praesentium. Id autem provident laborum quae, distinctio eaque temporibus!</p>
-    </div>
-
-    <div class="box">
-        <i class="fas fa-graduation-cap"></i>
-        <span>2020</span>
-        <h3>front end development</h3>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati quos alias praesentium. Id autem provident laborum quae, distinctio eaque temporibus!</p>
-    </div>
-
-    <div class="box">
-        <i class="fas fa-graduation-cap"></i>
-        <span>2021</span>
-        <h3>front end development</h3>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati quos alias praesentium. Id autem provident laborum quae, distinctio eaque temporibus!</p>
-    </div>
-
-</div>
-
-</section> -->
 
 
 <!-- Oeuvres section starts  -->
@@ -389,11 +206,12 @@
         <br>
         <div class="containerGuide">
           <label class="labelGuide">
-            <input type="radio" name="radio" id="radioB" checked/>
+            <input type="radio" name="radio" value="non_guide" checked />
             <span>Non Guidé</span>
           </label>
+          
           <label class="labelGuide">
-            <input type="radio" name="radio" id="radioB"/>
+            <input type="radio" name="radio" value="guide"/>
             <span>Guidé</span>
           </label>
       </div>
@@ -412,38 +230,32 @@
   <h1 class="heading"> <span>Paramètres</span> </h1>
 
   <div class="row">
-      <form action="">
+      <form action="modify_name_abonnee" method="post">
+        {% csrf_token %}
         <h2>Modifier Nom & Prénom </h2>
         <!-- <input type="text" placeholder="Nom" class="box">    -->
         <div class="user-box">
-          <input type="text" name="" required="">
+          <input type="text" name="old_nom" required="">
           <label>Nom</label>
         </div>     
         <!-- <input type="text" placeholder="New Nom" class="box">  -->
         <div class="user-box">
-          <input type="text" name="" required="">
+          <input type="text" name="new_nom" required="">
           <label>New Nom</label>
         </div>  
         <!-- <input type="text" placeholder="Prénom" class="box">    -->
         <div class="user-box">
-          <input type="text" name="" required="">
+          <input type="text" name="old_prenom" required="">
           <label>Prénom</label>
         </div>          
         <!-- <input type="text" placeholder="New Prénom" class="box"> -->
         <div class="user-box">
-          <input type="text" name="" required="">
+          <input type="text" name="new_prenom" required="">
           <label>New Prénom</label>
         </div>
         <button type="submit" > Modifier Nom & Prénom<i class="fas fa-paper-plane"></i> </button>
-
-
-
-        <!-- <input type="password" placeholder="mdp" class="box">
-        <input type="password" placeholder="New mdp" class="box">
-        <input type="password" placeholder="confirmer" class="box"> -->        
-
-  
     </form> 
+
     <form action="">
 
       <h2>Modifier Carte de crédit </h2>
@@ -462,30 +274,32 @@
 
     </form>
 
-    <form action="">
+    <form action="modify_passwd_abonnee" method="post">
+      {% csrf_token %}
       <h2>Modifier Mot de passe </h2>
       <div class="user-box">
-        <input type="password" name="" required="">
+        <input type="password" name="old_pass" required="">
         <label>mdp</label>
       </div>
       <div class="user-box">
-        <input type="password" name="" required="">
+        <input type="password" name="new_pass" required="">
         <label>New mdp</label>
       </div>
       <div class="user-box">
-        <input type="password" name="" required="">
+        <input type="password" name="com_new_pass" required="">
         <label>confirmer</label>
       </div>
       <button type="submit"> Modifier Mot de passe <i class="fas fa-paper-plane"></i> </button>
-
-      
     </form>
 
-    <form action="">
-      <h2>Ajouter image </h2>
-      <input type="file" id="myfile" name="myfile" class="box">
+
+    <form action="modify_image_abonnee" method="post" enctype="multipart/form-data">
+      {% csrf_token %}
+      <h2>Modifier image de profil</h2>
+      <input type="file" id="new_image" name="new_image" required>
       <button type="submit"> Modifier image <i class="fas fa-paper-plane"></i> </button>
     </form>
+
 
 </div>
 
@@ -494,6 +308,7 @@
   
 </section>
 </body>
+
 <script>
   $(document).ready(function(){
   var unavailableDates = JSON.parse('{{ formatted_dates|escapejs }}');
@@ -503,7 +318,7 @@
     minDate: 0,
     maxDate: "+14D",
     beforeShowDay: function(date){
-      var string = jQuery.datepicker.formatDate('%Y-%m-%d', date);
+      var string = jQuery.datepicker.formatDate('yy-mm-dd', date);
       return [ unavailableDates.indexOf(string) == -1 ]
     }
   });

@@ -19,5 +19,11 @@ urlpatterns = [
     path('panel/logout',views.logout, name="logout"),
     path('calendrier/',views.calendar, name='calendar'),
     path('panel/reserver',views.reserver, name='reserver'),
-    path('evenement/',views.evenement, name='evenement'),
+    path('evenement/',views.evenement,name="evenement"),
+    path('evenement/home',views.evt,name="evt"),
+    path('panel/modify_name_abonnee', views.modify_name_abonnee, name='modify_name_abonnee'),
+    path('panel/modify_pass_abonnee', views.modify_passwd_abonnee, name='modify_pass_abonnee'),
+    path('panel/modify_image_abonnee', views.modify_image_abonnee, name='modify_image_abonnee'),
+    path('panel/sedesabonne',views.sedesabonner,name="sedesabonner"),
+
 ]

@@ -22,7 +22,7 @@
             <ul id="action" style="margin-left:42%">
               <li><a href="#oeuvres" class="hover-underline-animation">Oeuvres</a></li>
               <li><a href="#abonnement" class="hover-underline-animation">Abonnement infos</a></li>
-              <li><a href="#calendar" class="hover-underline-animation">Calendrier</a></li>
+              <li><a href="#Conférences" class="hover-underline-animation">Evénements</a></li>
               <li><a href="#tarifs" class="hover-underline-animation">Infos sur Tarifs</a></li>
                 <a href="Signinup" class="btn1">S'abonner</a>
             </ul>
@@ -138,60 +138,44 @@
 
 <section class="appah3"  id="Conférences">
 
-  <h1>Evénement</h1>
+  <h1>Evénements</h1>
 
 <div class="row">
 
+  {% for manifestation in manif %}
   <div class="conf-box">
     <div class="conf-img">
+      
+      <img src="{{ manifestation.image.url }}" alt="">
+    </div>
+    <div class="conf-text">
+      <span> MANIFESTATION</span>
+      <span> <p class="p">Le  </p> {{ manifestation.date_debut }}</span>
+      <span class="conf-title"> {{ manifestation.titre }}</span>
+      <p>{{ manifestation.notes }}</p>
+        <a href="evenement">Lire plus</a>
+    </div>
+  </div>
+  {% endfor %}
+  
+  {% for conf in conf.all %}
+    <div class="conf-box">
+      <div class="conf-img">
 
-      <img src="{% static 'img/home/darJ.png'%}" alt="">
+      <img src="{{ conf.image.url }}" alt="Blog">
 
     </div>
 
     <div class="conf-text">
-      <span>01/02/2023 // 3issawa w bakho</span>
-      <a href="#" class="conf-title"> Appppaaaaaaaaaaaaaaaaaaaaah</a>
-      <p>Le palais Dar Jamaï fut édifié en 1882 dans la ville de Meknès au Maroc par Mohamed ben Larbi Jamaï.
-        Ce monument est devenu l'hôpital militaire</p>
-        <a href="#">Lire plus</a>
+      <span>CONFERENCE</span>
+      <span> <p class="p">Le </p> {{ conf.date_debut }} <p class="p">par </p> {{ conf.Conferencier }}</span><br>
+      <span class="conf-title"> {{ conf.titre }}</span>
+      <p>{{ conf.notes }}</p>
+        <a href="evenement">Lire plus</a>
     </div>
-
+    {% endfor %}
   </div>
 
-  <div class="conf-box">
-    <div class="conf-img">
-
-      <img src="{% static 'img/home/darJ.png'%}" alt="">
-
-    </div>
-
-    <div class="conf-text">
-      <span>01/02/2023 // 3issawa w bakho</span>
-      <a href="#" class="conf-title"> Appppaaaaaaaaaaaaaaaaaaaaah</a>
-      <p>Le palais Dar Jamaï fut édifié en 1882 dans la ville de Meknès au Maroc par Mohamed ben Larbi Jamaï.
-        Ce monument est devenu l'hôpital militaire</p>
-        <a href="#">Lire plus</a>
-    </div>
-
-  </div>
-
-  <div class="conf-box">
-    <div class="conf-img">
-
-      <img src="{% static 'img/home/darJ.png'%}" alt="Blog">
-
-    </div>
-
-    <div class="conf-text">
-      <span>01/02/2023 // 3issawa w bakho</span>
-      <a href="#" class="conf-title"> Appppaaaaaaaaaaaaaaaaaaaaah</a>
-      <p>Le palais Dar Jamaï fut édifié en 1882 dans la ville de Meknès au Maroc par Mohamed ben Larbi Jamaï.
-        Ce monument est devenu l'hôpital militaire</p>
-        <a href="#">Lire plus</a>
-    </div>
-
-  </div>
 </div>
 
 
@@ -258,7 +242,7 @@
                   <li><a href="oeuvres">Nos Oeuvres</a></li>
                   <li><a href="#abonnement">Abonnement infos</a></li>
                   <li><a href="#tarifs">Tarifs visite</a></li>
-                  <li><a href="calendar">Calendrier</a></li>
+                  <li><a href="evenement">Evénements</a></li>
                   
               </ul>
               <img src="{% static 'img/home/darJ.png'%}">
